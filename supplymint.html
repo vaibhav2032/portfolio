@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supplymint Case Study | Vaibhav Mishra</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700;800&family=Inter:wght@400;600;700;800&family=Sora:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <style>
+        body {
+            font-family: 'Urbanist', sans-serif;
+            background-color: #ffffff;
+            color: #1a1a1a;
+            scroll-behavior: smooth;
+        }
+
+        .font-inter {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .font-sora {
+            font-family: 'Sora', sans-serif;
+        }
+
+        .text-blue-primary {
+            color: #0047FF;
+        }
+
+        .bg-blue-primary {
+            background-color: #0047FF;
+        }
+
+        .btn-back {
+            transition: all 0.3s ease;
+        }
+
+        .btn-back:hover {
+            transform: translateX(-8px);
+            color: #0047FF;
+        }
+
+        .role-tag {
+            border: 1px solid #e5e7eb;
+            background-color: #f9fafb;
+            padding: 8px 20px;
+            border-radius: 9999px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #4b5563;
+        }
+
+        .content-section {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        /* Shuffle Cards Styles */
+        .cards-container {
+            position: relative;
+            width: 100%;
+            background-color: #121212;
+            padding: 100px 0;
+            border-radius: 60px;
+            margin-top: 100px;
+            overflow: hidden;
+        }
+
+        .shuffle-card {
+            position: sticky;
+            top: 80px;
+            width: 90%;
+            max-width: 1100px;
+            height: clamp(500px, 80vh, 750px);
+            margin: 0 auto 100px;
+            border-radius: 40px;
+            background: #1E1E1E;
+            padding: 3rem;
+            color: white;
+            box-shadow: 0 -20px 40px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .metric-highlight {
+            color: #0047FF;
+            /* Electric Blue */
+        }
+
+        .metric-highlight-green {
+            color: #39FF14;
+            /* Neon Green */
+        }
+
+        .impact-bar {
+            background: #181818;
+            border: 1px solid #2A2A2A;
+            border-radius: 24px;
+            display: flex;
+            justify-content: space-around;
+            padding: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .post-it {
+            background: #FFEB3B;
+            color: #1a1a1a;
+            padding: 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 700;
+            box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
+            transform: rotate(-2deg);
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 1.5rem;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body class="px-6 md:px-24 py-12 max-w-7xl mx-auto">
+    <!-- Navigation / Header -->
+    <header class="mb-20 flex justify-between items-center">
+        <a href="index.html" class="btn-back flex items-center gap-3 text-lg font-600 text-gray-500">
+            <i class="fa-solid fa-arrow-left"></i>
+            <span>Back to Portfolio</span>
+        </a>
+        <div class="flex items-center">
+            <img src="assets/images/supplymint_logo.svg" alt="Supplymint Logo" class="h-12 w-auto">
+        </div>
+    </header>
+
+    <!-- Project Hero Section -->
+    <section class="mb-32">
+        <div class="max-w-6xl">
+            <h1 class="text-[32px] md:text-[56px] font-800 text-gray-900 mb-12 leading-[1.4]">
+                Supplymint is a unified SaaS platform that digitizes and automates the entire retail and B2B supply
+                chain.
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-600 leading-relaxed font-400">
+                Empowering teams from smart procurement and predictive inventory to seamless B2B sales — enabling
+                data-driven decisions, real-time visibility, and scalable growth.
+            </p>
+        </div>
+    </section>
+
+    <!-- Info Section -->
+    <section class="space-y-16 mb-40">
+        <!-- Roles -->
+        <div>
+            <h3
+                class="text-sm font-700 uppercase tracking-widest text-blue-primary mb-8 underline decoration-2 underline-offset-8">
+                Roles</h3>
+            <div class="flex flex-wrap gap-4">
+                <span class="role-tag">UI Design</span>
+                <span class="role-tag">User Research</span>
+                <span class="role-tag">User flow</span>
+                <span class="role-tag">Prototyping</span>
+                <span class="role-tag">Components and Variables</span>
+                <span class="role-tag">Visual Consistency</span>
+                <span class="role-tag">Dev. Assistance</span>
+                <span class="role-tag">Brand Assets Design</span>
+                <span class="role-tag">Design System Engineering</span>
+                <span class="role-tag">MCP Integration</span>
+                <span class="role-tag">Technical Handoff</span>
+            </div>
+        </div>
+
+        <!-- Responsibilities Section -->
+        <div>
+            <h3
+                class="text-sm font-700 uppercase tracking-widest text-blue-primary mb-12 underline decoration-2 underline-offset-8">
+                Responsibilities</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Card 1 -->
+                <div
+                    class="bg-gray-50 p-8 rounded-[32px] border border-gray-100 hover:border-blue-primary/30 transition-all duration-500 group">
+                    <div
+                        class="w-12 h-12 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-sm border border-gray-100 group-hover:scale-110 transition-transform duration-500">
+                        <i class="fa-solid fa-layer-group text-blue-primary text-xl"></i>
+                    </div>
+                    <h4 class="text-xl font-700 mb-4">End-to-End Product Leadership</h4>
+                    <p class="text-gray-600 font-500 leading-relaxed text-sm">
+                        Leading the UI/UX strategy for a comprehensive SCM SaaS ecosystem, managing the full design
+                        lifecycle for web and mobile applications across procurement, planning, and sales modules.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div
+                    class="bg-gray-50 p-8 rounded-[32px] border border-gray-100 hover:border-blue-primary/30 transition-all duration-500 group">
+                    <div
+                        class="w-12 h-12 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-sm border border-gray-100 group-hover:scale-110 transition-transform duration-500">
+                        <i class="fa-solid fa-cubes text-blue-primary text-xl"></i>
+                    </div>
+                    <h4 class="text-xl font-700 mb-4">Design System Engineering</h4>
+                    <p class="text-gray-600 font-500 leading-relaxed text-sm">
+                        Architecting a scalable visual language using Figma Components and Variables, which eliminated
+                        UI inconsistencies and accelerated feature deployment speed by 40%.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div
+                    class="bg-gray-50 p-8 rounded-[32px] border border-gray-100 hover:border-blue-primary/30 transition-all duration-500 group">
+                    <div
+                        class="w-12 h-12 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-sm border border-gray-100 group-hover:scale-110 transition-transform duration-500">
+                        <i class="fa-solid fa-th-large text-blue-primary text-xl"></i>
+                    </div>
+                    <h4 class="text-xl font-700 mb-4">Data-Driven Dashboard Design</h4>
+                    <p class="text-gray-600 font-500 leading-relaxed text-sm">
+                        Translating complex stakeholder requirements into high-fidelity, real-time dashboards that
+                        prioritize layout hierarchy and actionable insight delivery for 1000+ daily users.
+                    </p>
+                </div>
+
+                <!-- Card 4 -->
+                <div
+                    class="bg-gray-50 p-8 rounded-[32px] border border-gray-100 hover:border-blue-primary/30 transition-all duration-500 group">
+                    <div
+                        class="w-12 h-12 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-sm border border-gray-100 group-hover:scale-110 transition-transform duration-500">
+                        <i class="fa-solid fa-magic text-blue-primary text-xl"></i>
+                    </div>
+                    <h4 class="text-xl font-700 mb-4">AI-Enhanced Workflow</h4>
+                    <p class="text-gray-600 font-500 leading-relaxed text-sm">
+                        Streamlining design-to-dev handoff by leveraging MCP integration, Claude, and Antigravity to
+                        bridge the gap between complex back-end data and intuitive user interfaces.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visual Showcase Placeholders -->
+    <section class="space-y-20 mb-32">
+        <div
+            class="w-full bg-gray-50 rounded-[40px] overflow-hidden aspect-video flex items-center justify-center border border-gray-100 mb-20">
+            <img src="assets/images/supplymint_warehouse_station.jpg" alt="Supplymint Showcase"
+                class="w-full h-full object-cover">
+        </div>
+
+        <!-- Project Impact & Performance Metrics Table -->
+        <div class="bg-[#111111] rounded-[40px] p-10 md:p-16 text-white mb-20">
+            <div class="max-w-4xl mb-12">
+                <h2 class="text-3xl font-800 mb-4">Project Impact & Performance Metrics</h2>
+                <p class="text-gray-400 font-500 italic">Strategic design interventions at Supplymint that drove
+                    measurable business growth.</p>
+            </div>
+
+            <div class="overflow-x-auto">
+                <table class="w-full text-left">
+                    <thead>
+                        <tr class="text-gray-500 text-sm font-700 uppercase tracking-widest border-b border-gray-800">
+                            <th class="pb-6 w-1/4">Metric</th>
+                            <th class="pb-6 w-1/4">Achievement</th>
+                            <th class="pb-6">The Strategic "Why"</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-800">
+                        <tr class="group">
+                            <td class="py-10 text-3xl font-800">🚀 40%</td>
+                            <td class="py-10 text-xl font-700">Faster Deployment</td>
+                            <td class="py-10 text-gray-400 leading-relaxed font-400">
+                                <span class="text-white font-700">Design System Engineering:</span> Developed a scalable
+                                library with Figma Variables & Tokens, cutting dev handoff time and eliminating UI
+                                inconsistencies.
+                            </td>
+                        </tr>
+                        <tr class="group">
+                            <td class="py-10 text-3xl font-800">⏱ 25%</td>
+                            <td class="py-10 text-xl font-700">Efficiency Gain</td>
+                            <td class="py-10 text-gray-400 leading-relaxed font-400">
+                                <span class="text-white font-700">Workflow Optimization:</span> Reduced user task
+                                completion time by re-architecting navigation and removing friction from core B2B
+                                modules.
+                            </td>
+                        </tr>
+                        <tr class="group">
+                            <td class="py-10 text-3xl font-800">🧩 3-to-1</td>
+                            <td class="py-10 text-xl font-700">System Architecture</td>
+                            <td class="py-10 text-gray-400 leading-relaxed font-400">
+                                <span class="text-white font-700">Platform Decoupling:</span> Successfully unbundled a
+                                monolithic SaaS into three specialized products, drastically reducing cognitive load for
+                                expert users.
+                            </td>
+                        </tr>
+                        <tr class="group">
+                            <td class="py-10 text-3xl font-800">👥 1000+</td>
+                            <td class="py-10 text-xl font-700">Daily Active Users</td>
+                            <td class="py-10 text-gray-400 leading-relaxed font-400">
+                                <span class="text-white font-700">User-Centric Scale:</span> Designed high-density
+                                dashboards that remain intuitive for a massive daily user base across the entire supply
+                                chain.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        </div>
+    </section>
+
+    <!-- Case Study Showcase Section (Vertical Shuffle Cards) -->
+    <section id="case-study-showcase" class="cards-container font-inter">
+        <!-- Card 1: User Journey Architecture -->
+        <div class="shuffle-card" id="card-1">
+            <div class="grid grid-cols-1 md:grid-cols-[1.5fr_1fr] gap-12 h-full">
+                <!-- Left: Content -->
+                <div class="flex flex-col justify-center">
+                    <span class="text-blue-primary font-800 text-sm tracking-widest uppercase mb-4">Phase 01</span>
+                    <h2 class="text-4xl font-800 font-sora mb-6">Mapping the SCM Lifecycle</h2>
+                    <p class="text-gray-400 text-lg leading-relaxed mb-8">
+                        Decoupling Retailer and Vendor workflows to reduce operational friction. By identifying distinct
+                        user intents, we modularized the monolithic architecture into specialized, high-velocity paths.
+                    </p>
+                    <div class="flex gap-4">
+                        <div class="post-it">Manual Data Entry Friction</div>
+                        <div class="post-it" style="transform: rotate(2deg);">Delayed Sync Points</div>
+                    </div>
+                </div>
+                <!-- Right: Visual Placeholder -->
+                <div
+                    class="bg-[#121212] rounded-3xl p-8 border border-white/5 flex flex-col justify-center relative overflow-hidden">
+                    <div class="w-full h-px bg-white/10 absolute top-1/2 left-0"></div>
+                    <div class="flex justify-between items-center mb-12 relative z-10">
+                        <div
+                            class="w-16 h-16 rounded-xl bg-blue-primary/20 border border-blue-primary/40 flex items-center justify-center text-blue-primary">
+                            <i class="fa-solid fa-shop"></i>
+                        </div>
+                        <div
+                            class="w-16 h-16 rounded-xl bg-purple-500/20 border border-purple-500/40 flex items-center justify-center text-purple-400">
+                            <i class="fa-solid fa-truck-fast"></i>
+                        </div>
+                    </div>
+                    <div class="flex justify-center relative z-10">
+                        <div
+                            class="w-20 h-20 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center">
+                            <i class="fa-solid fa-code-merge text-gray-500 text-2xl"></i>
+                        </div>
+                    </div>
+                    <p class="text-center text-gray-500 text-xs mt-8 font-600 uppercase tracking-widest">Swimlane Flow
+                        Diagram</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2: Modular Decoupling -->
+        <div class="shuffle-card" id="card-2">
+            <div class="flex flex-col h-full">
+                <div class="mb-12">
+                    <span class="text-blue-primary font-800 text-sm tracking-widest uppercase mb-4">System
+                        Thinking</span>
+                    <h2 class="text-4xl font-800 font-sora mb-4">03-to-01: Strategic Unbundling</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 flex-grow mb-12">
+                    <!-- Procurement -->
+                    <div
+                        class="bg-[#121212] p-8 rounded-3xl border border-white/5 hover:border-blue-primary/40 transition-all">
+                        <div
+                            class="w-10 h-10 rounded-lg bg-blue-primary/10 flex items-center justify-center mb-6 text-blue-primary">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </div>
+                        <h4 class="font-700 text-xl mb-4">Procurement</h4>
+                        <ul class="text-gray-500 text-sm space-y-2">
+                            <li>• Vendor Management</li>
+                            <li>• PO Generation</li>
+                            <li>• Price Benchmarking</li>
+                        </ul>
+                    </div>
+                    <!-- Planning -->
+                    <div
+                        class="bg-[#121212] p-8 rounded-3xl border border-white/5 hover:border-blue-primary/40 transition-all">
+                        <div
+                            class="w-10 h-10 rounded-lg bg-green-500/10 flex items-center justify-center mb-6 text-green-400">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </div>
+                        <h4 class="font-700 text-xl mb-4">Planning</h4>
+                        <ul class="text-gray-500 text-sm space-y-2">
+                            <li>• Demand Forecasting</li>
+                            <li>• Inventory Replenish</li>
+                            <li>• OTB Allocation</li>
+                        </ul>
+                    </div>
+                    <!-- Sales -->
+                    <div
+                        class="bg-[#121212] p-8 rounded-3xl border border-white/5 hover:border-blue-primary/40 transition-all">
+                        <div
+                            class="w-10 h-10 rounded-lg bg-orange-500/10 flex items-center justify-center mb-6 text-orange-400">
+                            <i class="fa-solid fa-store"></i>
+                        </div>
+                        <h4 class="font-700 text-xl mb-4">Sales</h4>
+                        <ul class="text-gray-500 text-sm space-y-2">
+                            <li>• Order Fulfillment</li>
+                            <li>• B2B Marketplace</li>
+                            <li>• Logistics Tracking</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Architecture Map -->
+                <div
+                    class="bg-[#2A2A2A] h-20 rounded-2xl flex items-center justify-center gap-12 border border-white/5">
+                    <div class="w-10 h-10 rounded outline outline-2 outline-white/10 outline-offset-4 bg-gray-800">
+                    </div>
+                    <i class="fa-solid fa-arrow-right text-gray-700"></i>
+                    <div class="flex gap-4">
+                        <div class="w-8 h-8 rounded bg-blue-primary/20"></div>
+                        <div class="w-8 h-8 rounded bg-green-500/20"></div>
+                        <div class="w-8 h-8 rounded bg-orange-500/20"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 3: System Scalability -->
+        <div class="shuffle-card" id="card-3">
+            <div class="flex flex-col h-full">
+                <div class="mb-10 text-center">
+                    <span class="text-blue-primary font-800 text-sm tracking-widest uppercase mb-4">Design
+                        Engineering</span>
+                    <h2 class="text-4xl font-800 font-sora">Architecting Consistency at Scale</h2>
+                </div>
+                <div class="bento-grid">
+                    <!-- Component Library -->
+                    <div
+                        class="grid-cols-2 grid-rows-2 row-span-2 col-span-2 bg-[#121212] rounded-3xl p-8 border border-white/5 overflow-hidden">
+                        <img src="https://framerusercontent.com/images/48995392-0b3d-4c5c-9c9e-5f6a9e8b6b1d.png"
+                            class="opacity-20 absolute -right-20 -bottom-20 w-80 rotate-12" alt="components">
+                        <h4 class="font-700 mb-6 text-gray-300">Component Library Preview</h4>
+                        <div class="flex flex-wrap gap-4">
+                            <button class="px-6 py-2 bg-blue-primary rounded-lg text-sm">Primary Action</button>
+                            <button class="px-6 py-2 border border-white/10 rounded-lg text-sm">Secondary</button>
+                            <div class="w-full flex gap-4 mt-4">
+                                <div
+                                    class="w-1/2 h-10 bg-white/5 rounded-lg border border-white/5 flex items-center px-4 text-[10px] text-gray-500">
+                                    Input Placeholder...</div>
+                                <div class="w-10 h-10 bg-white/5 rounded-lg border border-white/5"></div>
+                            </div>
+                        </div>
+                        <div
+                            class="mt-8 text-xs text-blue-primary font-600 bg-blue-primary/10 py-2 px-4 rounded-full inline-block">
+                            Increases deployment speed by 40%
+                        </div>
+                    </div>
+                    <!-- Variables Panel -->
+                    <div class="bg-[#121212] rounded-3xl p-6 border border-white/5 flex flex-col justify-between">
+                        <h4 class="font-700 text-sm text-gray-300 mb-4">Tokens Panel</h4>
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-center text-[10px] text-gray-500">
+                                <span>--brand-primary</span>
+                                <div class="w-3 h-3 rounded-full bg-blue-primary"></div>
+                            </div>
+                            <div class="flex justify-between items-center text-[10px] text-gray-500">
+                                <span>--surface-dark</span>
+                                <div class="w-3 h-3 rounded-full bg-[#1A1A1A]"></div>
+                            </div>
+                            <div class="flex justify-between items-center text-[10px] text-gray-500">
+                                <span>--radius-main</span>
+                                <span class="text-white/40">12px</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Metrics Cell -->
+                    <div
+                        class="bg-blue-primary rounded-3xl p-6 text-white flex flex-col justify-center items-center text-center">
+                        <span class="text-3xl font-800 mb-1">+40%</span>
+                        <span class="text-[10px] font-700 uppercase tracking-widest opacity-80">Dev Handoff
+                            Efficiency</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 4: Data Intelligence -->
+        <div class="shuffle-card" id="card-4">
+            <div class="flex flex-col h-full">
+                <div class="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-12 h-full items-center">
+                    <div>
+                        <span class="text-blue-primary font-800 text-sm tracking-widest uppercase mb-4">Actionable
+                            Visuals</span>
+                        <h2 class="text-4xl font-800 font-sora mb-6">Transforming Data into Action</h2>
+                        <p class="text-gray-400 text-lg leading-relaxed mb-8">
+                            Visualizing real-time logistics monitoring to reduce cognitive load. Our Logistics Command
+                            Center centralizes high-priority alerts and live tracking into a unified, actionable view.
+                        </p>
+                    </div>
+                    <!-- Dashboard Mockup -->
+                    <div
+                        class="bg-[#121212] h-full rounded-3xl border border-white/5 p-6 relative overflow-hidden flex flex-col">
+                        <div class="flex items-center justify-between mb-8">
+                            <div class="h-4 w-32 bg-white/5 rounded"></div>
+                            <div class="flex gap-2">
+                                <div class="h-4 w-4 bg-blue-primary rounded-full"></div>
+                                <div class="h-4 w-4 bg-white/5 rounded-full"></div>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-3 gap-4 mb-8">
+                            <div class="h-20 bg-white/5 rounded-xl border border-white/5 p-4 flex flex-col justify-end">
+                                <div class="h-2 w-1/2 bg-blue-primary/40 mb-2"></div>
+                                <div class="h-4 w-3/4 bg-white/10"></div>
+                            </div>
+                            <div class="h-20 bg-white/5 rounded-xl border border-white/5 p-4 flex flex-col justify-end">
+                                <div class="h-2 w-1/2 bg-green-500/40 mb-2"></div>
+                                <div class="h-4 w-3/4 bg-white/10"></div>
+                            </div>
+                            <div class="h-20 bg-white/5 rounded-xl border border-white/5 p-4 flex flex-col justify-end">
+                                <div class="h-2 w-1/2 bg-orange-500/40 mb-2"></div>
+                                <div class="h-4 w-3/4 bg-white/10"></div>
+                            </div>
+                        </div>
+                        <div
+                            class="flex-grow bg-white/5 rounded-xl border border-white/5 p-4 flex items-center justify-center">
+                            <i class="fa-solid fa-map-location-dot text-gray-700 text-6xl"></i>
+                        </div>
+                        <div
+                            class="absolute top-20 right-20 bg-blue-primary p-2 rounded-full cursor-help group shadow-xl shadow-blue-primary/20">
+                            <i class="fa-solid fa-plus text-xs"></i>
+                            <div
+                                class="absolute bottom-full right-0 mb-4 w-48 bg-white text-[#121212] p-4 rounded-xl text-[10px] font-700 opacity-0 group-hover:opacity-100 transition-opacity">
+                                Reduced cognitive load by prioritizing layout hierarchy.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Impact Bar (Recap) -->
+        <div class="w-full max-w-6xl mx-auto px-6">
+            <div class="impact-bar font-inter">
+                <div class="text-center">
+                    <span class="block text-4xl font-800 text-white mb-2 font-sora">-25%</span>
+                    <span class="text-gray-500 text-[10px] font-700 uppercase tracking-[0.2em]">Task Time</span>
+                </div>
+                <div class="w-px h-12 bg-white/10 my-auto"></div>
+                <div class="text-center">
+                    <span class="block text-4xl font-800 metric-highlight mb-2 font-sora">+40%</span>
+                    <span class="text-gray-500 text-[10px] font-700 uppercase tracking-[0.2em]">Deployment Speed</span>
+                </div>
+                <div class="w-px h-12 bg-white/10 my-auto"></div>
+                <div class="text-center">
+                    <span class="block text-4xl font-800 metric-highlight-green mb-2 font-sora">1000+</span>
+                    <span class="text-gray-500 text-[10px] font-700 uppercase tracking-[0.2em]">Daily Active
+                        Users</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer
+        class="border-t border-gray-100 pt-12 pb-24 flex justify-between items-center text-gray-400 font-600 text-sm">
+        <p>&copy; 2026 Vaibhav Mishra</p>
+        <div class="flex gap-8">
+            <a href="https://www.linkedin.com/feed/" target="_blank"
+                class="hover:text-blue-primary transition">LinkedIn</a>
+            <a href="https://www.behance.net/vaibhavmishra31" target="_blank"
+                class="hover:text-blue-primary transition">Behance</a>
+        </div>
+    </footer>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Animation for sections
+        gsap.utils.toArray('section').forEach((section, i) => {
+            gsap.to(section, {
+                opacity: 1,
+                y: 0,
+                duration: 1,
+                delay: i * 0.1,
+                scrollTrigger: {
+                    trigger: section,
+                    start: "top 90%",
+                }
+            });
+        });
+
+        // Specific entrance for hero
+        gsap.from('header', { opacity: 0, y: -20, duration: 1, ease: "power2.out" });
+
+        // Shuffle Cards Animation Logic
+        const cards = gsap.utils.toArray('.shuffle-card');
+        cards.forEach((card, i) => {
+            if (i === cards.length - 1) return; // Don't animate the last card scale
+
+            gsap.to(card, {
+                scale: 0.95,
+                opacity: 0.8,
+                scrollTrigger: {
+                    trigger: card,
+                    start: "top top",
+                    endTrigger: "#case-study-showcase",
+                    end: "bottom bottom",
+                    scrub: true,
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
