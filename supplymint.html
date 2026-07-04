@@ -7,6 +7,17 @@
     <title>Supplymint Case Study | Vaibhav Mishra</title>
     <link rel="icon" type="image/png" href="favicon.png">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'blue-primary': '#0047FF',
+                    }
+                }
+            }
+        }
+    </script>
     <link
         href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700;800&family=Inter:wght@400;600;700;800&family=Sora:wght@400;600;700;800&display=swap"
         rel="stylesheet">
@@ -71,9 +82,9 @@
             position: relative;
             width: 100%;
             background-color: #121212;
-            padding: 100px 0;
+            padding: 5% 0 100px;
             border-radius: 60px;
-            margin-top: 100px;
+            margin-top: 50px;
             overflow: hidden;
         }
 
@@ -82,11 +93,11 @@
             top: 80px;
             width: 90%;
             max-width: 1100px;
-            height: clamp(500px, 80vh, 750px);
+            min-height: clamp(450px, 70vh, 650px);
             margin: 0 auto 100px;
             border-radius: 40px;
             background: #1E1E1E;
-            padding: 3rem;
+            padding: 3.5rem 3rem;
             color: white;
             box-shadow: 0 -20px 40px rgba(0, 0, 0, 0.4);
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -338,8 +349,8 @@
     <!-- Case Study Showcase Section (Vertical Shuffle Cards) -->
     <section id="case-study-showcase" class="cards-container font-inter">
         <!-- Card 1: User Journey Architecture -->
-        <div class="shuffle-card" id="card-1">
-            <div class="grid grid-cols-1 md:grid-cols-[1.5fr_1fr] gap-12 h-full">
+        <div class="shuffle-card" id="card-1" style="margin-bottom: 180px;">
+            <div class="grid grid-cols-1 md:grid-cols-[1.5fr_1fr] gap-12 flex-1 items-center">
                 <!-- Left: Content -->
                 <div class="flex flex-col justify-center">
                     <span class="text-blue-primary font-800 text-sm tracking-widest uppercase mb-4">Phase 01</span>
@@ -356,7 +367,6 @@
                 <!-- Right: Visual Placeholder -->
                 <div
                     class="bg-[#121212] rounded-3xl p-8 border border-white/5 flex flex-col justify-center relative overflow-hidden">
-                    <div class="w-full h-px bg-white/10 absolute top-1/2 left-0"></div>
                     <div class="flex justify-between items-center mb-12 relative z-10">
                         <div
                             class="w-16 h-16 rounded-xl bg-blue-primary/20 border border-blue-primary/40 flex items-center justify-center text-blue-primary">
@@ -373,15 +383,13 @@
                             <i class="fa-solid fa-code-merge text-gray-500 text-2xl"></i>
                         </div>
                     </div>
-                    <p class="text-center text-gray-500 text-xs mt-8 font-600 uppercase tracking-widest">Swimlane Flow
-                        Diagram</p>
                 </div>
             </div>
         </div>
 
         <!-- Card 2: Modular Decoupling -->
         <div class="shuffle-card" id="card-2">
-            <div class="flex flex-col h-full">
+            <div class="flex flex-col flex-1">
                 <div class="mb-8">
                     <span class="text-blue-primary font-800 text-sm tracking-widest uppercase mb-3">System
                         Thinking</span>
@@ -390,9 +398,9 @@
                 <div class="relative pt-2">
                     <!-- Root Node -->
                     <div
-                        class="flex justify-center mb-8 relative z-10 transition-transform duration-700 hover:scale-105">
+                        class="flex justify-center mb-14 relative z-10 transition-transform duration-700 hover:scale-105">
                         <div
-                            class="px-8 py-4 rounded-2xl flex items-center border-2 border-[#5D5FEF]">
+                            class="px-8 py-4 rounded-2xl flex items-center border border-[#5D5FEF]/50" style="border-width: 0.5px;">
                             <img src="assets/images/supplymint_logo_white.svg" class="h-8 w-auto" alt="Supplymint">
                         </div>
                     </div>
@@ -400,29 +408,25 @@
                     <!-- Hierarchy Lines (Desktop only) -->
                     <svg class="absolute top-0 left-0 w-full h-full pointer-events-none hidden md:block"
                         style="z-index: 0;">
-                        <!-- Line from top (header) to root node -->
-                        <line x1="50%" y1="-40" x2="50%" y2="0" stroke="rgba(255,255,255,0.1)" stroke-width="2"
-                            stroke-dasharray="6 6" />
-
                         <!-- Line from Root Node down to bridge -->
-                        <line x1="50%" y1="68" x2="50%" y2="96" stroke="rgba(255,255,255,0.2)" stroke-width="2"
+                        <line x1="50%" y1="78" x2="50%" y2="120" stroke="rgba(255,255,255,0.2)" stroke-width="2"
                             stroke-dasharray="6 6" />
 
                         <!-- Horizontal bridge -->
-                        <line x1="16.6%" y1="96" x2="83.3%" y2="96" stroke="rgba(255,255,255,0.2)" stroke-width="2"
+                        <line x1="16.6%" y1="120" x2="83.3%" y2="120" stroke="rgba(255,255,255,0.2)" stroke-width="2"
                             stroke-dasharray="6 6" />
 
                         <!-- Drops from bridge to module cards -->
-                        <line x1="16.6%" y1="96" x2="16.6%" y2="124" stroke="rgba(255,255,255,0.2)" stroke-width="2"
+                        <line x1="16.6%" y1="120" x2="16.6%" y2="180" stroke="rgba(255,255,255,0.2)" stroke-width="2"
                             stroke-dasharray="6 6" />
-                        <line x1="50%" y1="96" x2="50%" y2="124" stroke="rgba(255,255,255,0.2)" stroke-width="2"
+                        <line x1="50%" y1="120" x2="50%" y2="180" stroke="rgba(255,255,255,0.2)" stroke-width="2"
                             stroke-dasharray="6 6" />
-                        <line x1="83.3%" y1="96" x2="83.3%" y2="124" stroke="rgba(255,255,255,0.2)" stroke-width="2"
+                        <line x1="83.3%" y1="120" x2="83.3%" y2="180" stroke="rgba(255,255,255,0.2)" stroke-width="2"
                             stroke-dasharray="6 6" />
                     </svg>
 
                     <!-- Decoupled Modules Grid -->
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10 pt-6">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10 pt-12">
                         <!-- Card 1: digiproc -->
                         <div
                             class="bg-[#181818] p-6 md:p-8 rounded-[32px] border border-white/5 hover:border-blue-primary/40 hover:bg-blue-primary/5 transition-all duration-500 group">
@@ -447,7 +451,7 @@
                                 <li class="flex items-center gap-3">
                                     <div
                                         class="w-1.5 h-1.5 bg-blue-primary rounded-full shadow-[0_0_8px_rgba(59,130,246,0.5)]">
-                                    </div> Price Benchmarking
+                                    </div> OTB Allocation
                                 </li>
                             </ul>
                         </div>
@@ -468,15 +472,11 @@
                                         class="w-1.5 h-1.5 bg-green-400 rounded-full shadow-[0_0_8px_rgba(74,222,128,0.5)]">
                                     </div> Demand Forecasting
                                 </li>
-                                <li class="flex items-center gap-3">
+                                <li class="flex items-start gap-3">
                                     <div
-                                        class="w-1.5 h-1.5 bg-green-400 rounded-full shadow-[0_0_8px_rgba(74,222,128,0.5)]">
-                                    </div> Inventory Replenish
-                                </li>
-                                <li class="flex items-center gap-3">
-                                    <div
-                                        class="w-1.5 h-1.5 bg-green-400 rounded-full shadow-[0_0_8px_rgba(74,222,128,0.5)]">
-                                    </div> OTB Allocation
+                                        class="w-1.5 h-1.5 bg-green-400 rounded-full shadow-[0_0_8px_rgba(74,222,128,0.5)] mt-1.5 shrink-0">
+                                    </div>
+                                    <span>Automatic Replenishment<br>System (ARS)</span>
                                 </li>
                             </ul>
                         </div>
@@ -490,7 +490,7 @@
                                 class="w-12 h-12 rounded-xl bg-orange-400/10 flex items-center justify-center mb-6 text-orange-400 group-hover:scale-110 transition-transform">
                                 <i class="fa-solid fa-arrow-trend-up text-xl"></i>
                             </div>
-                            <h4 class="font-800 text-xl mb-4 text-white">Sales</h4>
+                            <h4 class="font-800 text-xl mb-4 text-white">B2B Sales</h4>
                             <ul class="text-gray-400 text-sm space-y-3 font-500">
                                 <li class="flex items-center gap-3">
                                     <div
@@ -516,7 +516,7 @@
 
         <!-- Card 3: System Scalability -->
         <div class="shuffle-card" id="card-3">
-            <div class="flex flex-col h-full">
+            <div class="flex flex-col flex-1">
                 <div class="mb-10 text-center">
                     <span class="text-blue-primary font-800 text-sm tracking-widest uppercase mb-4">Design
                         Engineering</span>
@@ -526,8 +526,6 @@
                     <!-- Component Library -->
                     <div
                         class="grid-cols-2 grid-rows-2 row-span-2 col-span-2 bg-[#121212] rounded-3xl p-8 border border-white/5 overflow-hidden">
-                        <img src="https://framerusercontent.com/images/48995392-0b3d-4c5c-9c9e-5f6a9e8b6b1d.png"
-                            class="opacity-20 absolute -right-20 -bottom-20 w-80 rotate-12" alt="components">
                         <h4 class="font-700 mb-6 text-gray-300">Component Library Preview</h4>
                         <div class="flex flex-wrap gap-4">
                             <button class="px-6 py-2 bg-blue-primary rounded-lg text-sm">Primary Action</button>
@@ -575,8 +573,8 @@
 
         <!-- Card 4: Data Intelligence -->
         <div class="shuffle-card" id="card-4">
-            <div class="flex flex-col h-full">
-                <div class="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-12 h-full items-center">
+            <div class="flex flex-col flex-1">
+                <div class="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-12 flex-1 items-center">
                     <div>
                         <span class="text-blue-primary font-800 text-sm tracking-widest uppercase mb-4">Actionable
                             Visuals</span>
