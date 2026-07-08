@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optimizing PO Creation: Case Study | Vaibhav Mishra</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'blue-primary': '#0047FF',
+                    }
+                }
+            }
+        }
+    </script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700;800&family=Sora:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <style>
+        body {
+            font-family: 'Urbanist', sans-serif;
+            background-color: #ffffff;
+            color: #1a1a1a;
+            scroll-behavior: smooth;
+        }
+
+        .font-inter {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .font-sora {
+            font-family: 'Sora', sans-serif;
+        }
+
+        .text-blue-primary {
+            color: #0047FF;
+        }
+
+        .bg-blue-primary {
+            background-color: #0047FF;
+        }
+
+        .btn-back {
+            transition: all 0.3s ease;
+        }
+
+        .btn-back:hover {
+            transform: translateX(-8px);
+            color: #0047FF;
+        }
+
+        .btn-primary {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.03) translateY(-2px) !important;
+            box-shadow: 0 12px 24px rgba(0, 71, 255, 0.15) !important;
+            background-color: #0037D5 !important;
+        }
+
+        .tab-btn {
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn.active {
+            border-color: #0047FF;
+            color: #0047FF;
+            background-color: rgba(0, 71, 255, 0.05);
+        }
+
+        .diagram-node {
+            transition: all 0.3s ease;
+        }
+
+        .diagram-node:hover {
+            transform: scale(1.05);
+            filter: drop-shadow(0 10px 15px rgba(0, 71, 255, 0.15));
+        }
+
+        .constraint-card {
+            background-color: rgba(244, 244, 245, 0.4);
+            border: 1px solid rgb(244, 244, 245);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .constraint-card:hover {
+            background-color: #ffffff !important;
+            border-color: #e4e4e7 !important;
+            box-shadow: 0 20px 40px rgba(24, 24, 27, 0.04) !important;
+            transform: translateY(-6px) !important;
+        }
+    </style>
+</head>
+
+<body class="px-6 md:px-24 py-12 max-w-7xl mx-auto">
+    <!-- Header / Navigation -->
+    <header class="mb-20 flex justify-between items-center">
+        <a href="supplymint.html" class="btn-back flex items-center gap-3 text-lg font-600 text-gray-500">
+            <i class="fa-solid fa-arrow-left"></i>
+            <span>Back to Case Study Summary</span>
+        </a>
+        <div class="flex items-center gap-6">
+            <div class="flex items-center">
+                <img src="assets/images/supplymint_logo.svg" alt="Supplymint Logo" class="h-8 w-auto">
+            </div>
+        </div>
+    </header>
+
+    <!-- Case Study Hero Section -->
+    <section class="mb-24">
+        <div class="max-w-4xl space-y-6">
+            <span class="text-xs font-800 uppercase tracking-widest text-blue-primary px-3 py-1 bg-blue-primary/10 rounded-full font-sora">Detailed Case Study</span>
+            <h1 class="text-4xl md:text-5xl font-800 text-gray-900 leading-[1.25] font-sora">
+                Optimizing PO Creation: How Centralizing Vendor Intelligence Reduced Friction for Enterprise Retailers
+            </h1>
+            <p class="text-xl text-gray-600 leading-relaxed font-500 max-w-3xl">
+                A design deep dive into transforming fragmented supplier telemetry into a high-density, centralized workspace directly integrated at the point of procurement decision-making.
+            </p>
+        </div>
+    </section>
+
+    <!-- 1. CONTEXT SECTION -->
+    <section class="mb-32 space-y-16">
+        <div class="border-t border-gray-100 pt-12">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                <!-- Left Content -->
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="text-xs font-700 uppercase tracking-widest text-blue-primary">01 / Context</span>
+                    <h2 class="text-3xl font-800 font-sora text-gray-900">Understanding the Retail Supply Chain Ecosystem</h2>
+                    <p class="text-gray-600 leading-relaxed font-500 text-base">
+                        Retailers run physical outlets, online stores, and warehouse facilities, processing high-volume POs coming from multiple channels. To support this scale, they need a system that does not tie them down to a single screen, layout, or feature.
+                    </p>
+                    <p class="text-gray-600 leading-relaxed font-500 text-base">
+                        Prior to our intervention, planners lacked context on vendors when attempting to evaluate their performance. In most cases, there was no single dashboard to show how they were doing, forcing teams to perform tedious manual navigation to gather basics.
+                    </p>
+
+                    <!-- Ecosystem Metrics -->
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 pt-6 font-inter">
+                        <div class="bg-gray-50 p-4 rounded-2xl border border-gray-100 text-center">
+                            <span class="block text-3xl font-800 text-blue-primary">100+</span>
+                            <span class="text-[10px] font-700 text-gray-500 uppercase tracking-wider">Active Retailers</span>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-2xl border border-gray-100 text-center">
+                            <span class="block text-3xl font-800 text-blue-primary">11M+</span>
+                            <span class="text-[10px] font-700 text-gray-500 uppercase tracking-wider">Monthly Shipments</span>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-2xl border border-gray-100 text-center">
+                            <span class="block text-3xl font-800 text-blue-primary">15K+</span>
+                            <span class="text-[10px] font-700 text-gray-500 uppercase tracking-wider">Active Vendors</span>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-2xl border border-gray-100 text-center">
+                            <span class="block text-3xl font-800 text-blue-primary">0</span>
+                            <span class="text-[10px] font-700 text-gray-500 uppercase tracking-wider">Manual Sheets</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Visual: Fragmented Vendor State SVG -->
+                <div class="lg:col-span-6 bg-gray-50 rounded-[32px] p-8 border border-gray-100 flex flex-col items-center justify-center min-h-[400px]">
+                    <h4 class="text-xs uppercase tracking-widest font-700 text-gray-400 mb-8">Fragmented Vendor State</h4>
+                    <svg viewBox="0 0 500 280" class="w-full h-auto max-w-[450px]">
+                        <!-- Connections from center (?) node to outer vendor nodes -->
+                        <line x1="250" y1="140" x2="80" y2="70" stroke="#CBD5E1" stroke-width="2" stroke-dasharray="4 4" />
+                        <line x1="250" y1="140" x2="250" y2="40" stroke="#CBD5E1" stroke-width="2" stroke-dasharray="4 4" />
+                        <line x1="250" y1="140" x2="420" y2="70" stroke="#CBD5E1" stroke-width="2" stroke-dasharray="4 4" />
+                        <line x1="250" y1="140" x2="80" y2="210" stroke="#CBD5E1" stroke-width="2" stroke-dasharray="4 4" />
+                        <line x1="250" y1="140" x2="420" y2="210" stroke="#CBD5E1" stroke-width="2" stroke-dasharray="4 4" />
+                        
+                        <!-- Top triggers -->
+                        <rect x="150" y="5" width="90" height="26" rx="13" fill="#0047FF" />
+                        <text x="195" y="22" fill="white" font-size="10" font-family="Inter" font-weight="bold" text-anchor="middle">Live Seller</text>
+                        
+                        <rect x="260" y="5" width="110" height="26" rx="13" fill="#E2E8F0" stroke="#CBD5E1" stroke-width="1" />
+                        <text x="315" y="22" fill="#475569" font-size="10" font-family="Inter" font-weight="bold" text-anchor="middle">High Volume POs</text>
+                        
+                        <line x1="195" y1="31" x2="250" y2="140" stroke="#0047FF" stroke-width="1.5" />
+                        <line x1="315" y1="31" x2="250" y2="140" stroke="#94A3B8" stroke-width="1.5" />
+
+                        <!-- Outer vendor nodes -->
+                        <g class="diagram-node cursor-pointer">
+                            <circle cx="80" cy="70" r="28" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="2" />
+                            <text x="80" y="74" text-anchor="middle" font-family="Inter" font-weight="bold" font-size="10" fill="#64748B">Vendor 1</text>
+                        </g>
+                        <g class="diagram-node cursor-pointer">
+                            <circle cx="250" cy="40" r="28" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="2" />
+                            <text x="250" y="44" text-anchor="middle" font-family="Inter" font-weight="bold" font-size="10" fill="#64748B">Vendor 2</text>
+                        </g>
+                        <g class="diagram-node cursor-pointer">
+                            <circle cx="420" cy="70" r="28" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="2" />
+                            <text x="420" y="74" text-anchor="middle" font-family="Inter" font-weight="bold" font-size="10" fill="#64748B">Vendor 3</text>
+                        </g>
+                        <g class="diagram-node cursor-pointer">
+                            <circle cx="80" cy="210" r="28" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="2" />
+                            <text x="80" y="214" text-anchor="middle" font-family="Inter" font-weight="bold" font-size="10" fill="#64748B">Vendor 4</text>
+                        </g>
+                        <g class="diagram-node cursor-pointer">
+                            <circle cx="420" cy="210" r="28" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="2" />
+                            <text x="420" y="214" text-anchor="middle" font-family="Inter" font-weight="bold" font-size="10" fill="#64748B">Vendor 5</text>
+                        </g>
+
+                        <!-- Central "?" Node -->
+                        <g class="diagram-node cursor-pointer">
+                            <circle cx="250" cy="140" r="32" fill="#0047FF" />
+                            <text x="250" y="146" text-anchor="middle" font-family="Sora" font-weight="800" font-size="18" fill="white">?</text>
+                        </g>
+                    </svg>
+                    <p class="text-[11px] text-gray-400 mt-6 font-semibold italic text-center max-w-sm">Lack of unified visibility: evaluating a single supplier required cross-referencing multiple separate lists.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. PAIN POINTS SECTION -->
+    <section class="mb-32 space-y-16">
+        <div class="border-t border-gray-100 pt-12">
+            <div class="space-y-6 mb-12">
+                <span class="text-xs font-700 uppercase tracking-widest text-blue-primary">02 / Pain Points</span>
+                <h2 class="text-3xl font-800 font-sora text-gray-900">Identifying Core Procurement Bottlenecks</h2>
+                <p class="text-gray-600 leading-relaxed font-500 text-base max-w-3xl">
+                    Through direct observation and interviews with retail planners, we mapped several systemic frictions preventing fast and accurate order placement.
+                </p>
+            </div>
+
+            <!-- Pain Point Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-red-50/30 p-8 rounded-[32px] border border-red-100 flex gap-6">
+                    <div class="w-12 h-12 rounded-2xl bg-white border border-red-100 flex items-center justify-center shrink-0">
+                        <i class="fa-solid fa-hourglass-half text-red-500 text-xl"></i>
+                    </div>
+                    <div class="space-y-2">
+                        <h4 class="text-lg font-700 text-gray-900">Picking the right vendor, quickly</h4>
+                        <p class="text-gray-600 text-sm font-500 leading-relaxed">
+                            Choosing a vendor without historical lead times or performance records. Planners manually compared vendors across separate Excel sheets, severely delaying order fulfillment.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-red-50/30 p-8 rounded-[32px] border border-red-100 flex gap-6">
+                    <div class="w-12 h-12 rounded-2xl bg-white border border-red-100 flex items-center justify-center shrink-0">
+                        <i class="fa-solid fa-puzzle-piece text-red-500 text-xl"></i>
+                    </div>
+                    <div class="space-y-2">
+                        <h4 class="text-lg font-700 text-gray-900">Fragmented vendor details</h4>
+                        <p class="text-gray-600 text-sm font-500 leading-relaxed">
+                            Important vendor data is spread across different legacy modules. Planners have to open several tabs just to check basic contact info or verify payment ledger history.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-red-50/30 p-8 rounded-[32px] border border-red-100 flex gap-6">
+                    <div class="w-12 h-12 rounded-2xl bg-white border border-red-100 flex items-center justify-center shrink-0">
+                        <i class="fa-solid fa-eye-slash text-red-500 text-xl"></i>
+                    </div>
+                    <div class="space-y-2">
+                        <h4 class="text-lg font-700 text-gray-900">No vendor context at decision time</h4>
+                        <p class="text-gray-600 text-sm font-500 leading-relaxed">
+                            During PO generation, there is no real-time indicator of a vendor's performance (e.g., OTIF rates, fulfillment rates) or outstanding payable status, making risk mitigation impossible.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-red-50/30 p-8 rounded-[32px] border border-red-100 flex gap-6">
+                    <div class="w-12 h-12 rounded-2xl bg-white border border-red-100 flex items-center justify-center shrink-0">
+                        <i class="fa-solid fa-id-card text-red-500 text-xl"></i>
+                    </div>
+                    <div class="space-y-2">
+                        <h4 class="text-lg font-700 text-gray-900">Vendor identity validation</h4>
+                        <p class="text-gray-600 text-sm font-500 leading-relaxed">
+                            Verifying supplier credentials like tax IDs (GST/PAN) and bank details is manual and slow, with no central repository for quick search and approval.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Calendar Screenshot block -->
+            <div class="pt-8 flex flex-col items-center">
+                <div class="bg-gray-50 p-6 rounded-[32px] border border-gray-100 max-w-3xl w-full">
+                    <h4 class="text-center font-700 text-sm text-gray-500 mb-6">Average Retailer PO Creation Calendar Load</h4>
+                    <img src="assets/images/case_study_calendar.png" alt="Retailer PO Calendar Graphic" class="w-full h-auto rounded-2xl shadow-sm">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. GOALS & CONSTRAINTS SECTION -->
+    <section class="mb-32 space-y-16">
+        <div class="border-t border-gray-100 pt-12">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                <!-- Left: Goals -->
+                <div class="lg:col-span-5 lg:flex lg:flex-col lg:justify-between lg:h-full space-y-6 lg:space-y-0">
+                    <div class="space-y-6">
+                        <span class="text-xs font-700 uppercase tracking-widest text-blue-primary">03 / Goals</span>
+                        <h2 class="text-3xl font-800 font-sora text-gray-900">Strategic Design Goals</h2>
+                    </div>
+                    <ul class="space-y-4 pt-4 lg:pt-0 lg:flex-1 lg:flex lg:flex-col lg:justify-between lg:py-6">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-blue-primary text-xl mt-0.5"></i>
+                            <span class="text-gray-700 font-500">Reduce PO creation time and associated cognitive load.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-blue-primary text-xl mt-0.5"></i>
+                            <span class="text-gray-700 font-500">Make vendor performance metrics accessible at the exact point of decision.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-blue-primary text-xl mt-0.5"></i>
+                            <span class="text-gray-700 font-500">Incentivize vendors to maintain high rating scores and fulfillment metrics.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-blue-primary text-xl mt-0.5"></i>
+                            <span class="text-gray-700 font-500">Bring transparency to all vendor-retailer financial transactions.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-blue-primary text-xl mt-0.5"></i>
+                            <span class="text-gray-700 font-500">Surface payment ledger and outstanding data without extra navigation digging.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Right: Constraints -->
+                <div class="lg:col-span-7 space-y-6">
+                    <span class="text-xs font-700 uppercase tracking-widest text-blue-primary">04 / Constraints</span>
+                    <h2 class="text-3xl font-800 font-sora text-gray-900">Technical & Practical Constraints</h2>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
+                        <!-- Card 1 -->
+                        <div class="constraint-card group relative p-6 rounded-[28px] space-y-3">
+                            <span class="block text-xs font-mono font-700 text-zinc-400">01</span>
+                            <div class="space-y-1">
+                                <h4 class="font-700 font-sora text-zinc-900 text-sm">Enhance, don't disrupt</h4>
+                                <p class="text-zinc-500 text-xs font-500 leading-relaxed">
+                                    The new module must fit seamlessly into the existing Supplymint SaaS ecosystem, ensuring zero workflow disruption for active enterprise clients.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Card 2 -->
+                        <div class="constraint-card group relative p-6 rounded-[28px] space-y-3">
+                            <span class="block text-xs font-mono font-700 text-zinc-400">02</span>
+                            <div class="space-y-1">
+                                <h4 class="font-700 font-sora text-zinc-900 text-sm">Universal Accessibility</h4>
+                                <p class="text-zinc-500 text-xs font-500 leading-relaxed">
+                                    All vendor intelligence telemetry must be available at the click of a button from any screen in the platform.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Card 3 -->
+                        <div class="constraint-card group relative p-6 rounded-[28px] space-y-3">
+                            <span class="block text-xs font-mono font-700 text-zinc-400">03</span>
+                            <div class="space-y-1">
+                                <h4 class="font-700 font-sora text-zinc-900 text-sm">Utilize existing data only</h4>
+                                <p class="text-zinc-500 text-xs font-500 leading-relaxed">
+                                    The dashboard must operate using already-collected transaction history, without requiring additional vendor input.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Card 4 -->
+                        <div class="constraint-card group relative p-6 rounded-[28px] space-y-3">
+                            <span class="block text-xs font-mono font-700 text-zinc-400">04</span>
+                            <div class="space-y-1">
+                                <h4 class="font-700 font-sora text-zinc-900 text-sm">Lightweight interfaces</h4>
+                                <p class="text-zinc-500 text-xs font-500 leading-relaxed">
+                                    Front-end layouts must be lightweight and easy to navigate for users on low-bandwidth warehouse connections.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. APPROACH SECTION -->
+    <section class="mb-32 space-y-16">
+        <div class="border-t border-gray-100 pt-12">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="text-xs font-700 uppercase tracking-widest text-blue-primary">05 / Approach</span>
+                    <h2 class="text-3xl font-800 font-sora text-gray-900">Strategic UX Architectural Choices</h2>
+                    <p class="text-gray-600 leading-relaxed font-500 text-base">
+                        The solution needed to be universal, scalable, and implementable anywhere supplier details appeared in the system—not tied to a single layout. This ruled out several initial ideas:
+                    </p>
+                    <ul class="space-y-3 pl-4 list-disc text-gray-600 font-500 text-sm">
+                        <li><strong>Tabbed Profiles:</strong> Ruled out because it forced users to navigate away from their active workflows.</li>
+                        <li><strong>Sidebar Overlays:</strong> Ruled out as it obscured the parent data grid and lacked the visual density needed.</li>
+                    </ul>
+                    <p class="text-gray-600 leading-relaxed font-500 text-base">
+                        This led us to design a <strong>Unified Overlay Modal with Tabbed Telemetry</strong>, accessible universally via context clicks and global search.
+                    </p>
+                </div>
+
+                <div class="lg:col-span-6 bg-blue-primary/5 p-8 rounded-[32px] border border-blue-primary/10 space-y-4">
+                    <h4 class="font-800 text-lg text-gray-900">Why a Unified Modal?</h4>
+                    <div class="space-y-3 text-sm text-gray-600 font-500">
+                        <div class="flex gap-3">
+                            <span class="text-blue-primary font-800">✓</span>
+                            <p><strong>Contextual Integrity:</strong> The backdrop remains visible, keeping the primary workspace intact.</p>
+                        </div>
+                        <div class="flex gap-3">
+                            <span class="text-blue-primary font-800">✓</span>
+                            <p><strong>Universal Trigger:</strong> Can be summoned from grids, search, or creation dialogs without reloading.</p>
+                        </div>
+                        <div class="flex gap-3">
+                            <span class="text-blue-primary font-800">✓</span>
+                            <p><strong>Information Density:</strong> Supports complex grids and charts within an optimized tabbed card structure.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. USER RESEARCH SECTION -->
+    <section class="mb-32 space-y-16">
+        <div class="border-t border-gray-100 pt-12">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                <!-- Left: Research text and insights -->
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="text-xs font-700 uppercase tracking-widest text-blue-primary">06 / User Research</span>
+                    <h2 class="text-3xl font-800 font-sora text-gray-900">User Discoveries & Behavioral Logs</h2>
+                    <p class="text-gray-600 leading-relaxed font-500 text-base">
+                        Through interviews with 15+ procurement planners, we discovered key friction patterns:
+                    </p>
+                    
+                    <!-- Research Insights Grid -->
+                    <div class="space-y-4 font-inter">
+                        <div class="p-4 bg-gray-50 border-l-4 border-blue-primary rounded-r-xl space-y-1">
+                            <h4 class="font-700 text-xs uppercase tracking-wider text-gray-500">Volume changes behavior</h4>
+                            <p class="text-gray-600 text-sm font-500">Planners dealing with 10+ vendors need quick aggregate summaries, while those with 1-2 need complete transaction lists.</p>
+                        </div>
+                        <div class="p-4 bg-gray-50 border-l-4 border-blue-primary rounded-r-xl space-y-1">
+                            <h4 class="font-700 text-xs uppercase tracking-wider text-gray-500">Rate Visibility Gap</h4>
+                            <p class="text-gray-600 text-sm font-500">Retailers placed orders without checking current vendor contracts, causing post-facto price mismatches.</p>
+                        </div>
+                        <div class="p-4 bg-gray-50 border-l-4 border-blue-primary rounded-r-xl space-y-1">
+                            <h4 class="font-700 text-xs uppercase tracking-wider text-gray-500">Validation Overhead</h4>
+                            <p class="text-gray-600 text-sm font-500">Delays in manually verifying GST/PAN credentials caused tax invoice errors and blocked input tax credits.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Secondary research screenshot -->
+                <div class="lg:col-span-6 space-y-6 bg-gray-50 rounded-[32px] p-6 border border-gray-100 flex flex-col items-center">
+                    <h4 class="text-xs uppercase tracking-widest font-700 text-gray-400">User Session Navigation Log Analysis</h4>
+                    <img src="assets/images/case_study_secondary_research.png" alt="Secondary Research Screen" class="w-full h-auto rounded-2xl shadow-md border border-gray-100 max-w-[400px]">
+                    <p class="text-xs text-gray-400 italic font-semibold text-center mt-2 max-w-sm">Secondary research revealed that 70% of user sessions involved constant tab toggling between Purchase Ledger and PO modules.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. SOLUTION SECTION -->
+    <section class="mb-32 space-y-16">
+        <div class="border-t border-gray-100 pt-12">
+            <div class="max-w-4xl space-y-6 mb-12">
+                <span class="text-xs font-700 uppercase tracking-widest text-blue-primary">07 / The Solution</span>
+                <h2 class="text-3xl font-800 font-sora text-gray-900">A Unified Vendor 360° View Modal</h2>
+                <p class="text-gray-600 leading-relaxed font-500 text-base">
+                    Our solution consolidated all order states, outstanding payables, OTIF rates, and onboarding metrics into a single, tabbed modal. Instead of navigating away, users click any supplier's name in the data grids to summon the modal instantly.
+                </p>
+            </div>
+
+            <!-- Tab Switcher Widget -->
+            <div class="space-y-6 font-inter">
+                <!-- Tab Buttons -->
+                <div class="flex flex-wrap gap-3 border-b border-gray-200 pb-4">
+                    <button id="tab-overview" onclick="switchTab('overview')"
+                        class="tab-btn px-6 py-2.5 rounded-full border border-gray-200 text-sm font-700 active uppercase tracking-wider">
+                        1. Overview Tab
+                    </button>
+                    <button id="tab-openpo" onclick="switchTab('openpo')"
+                        class="tab-btn px-6 py-2.5 rounded-full border border-gray-200 text-sm font-700 uppercase tracking-wider">
+                        2. Open PO Tab
+                    </button>
+                    <button id="tab-ledger" onclick="switchTab('ledger')"
+                        class="tab-btn px-6 py-2.5 rounded-full border border-gray-200 text-sm font-700 uppercase tracking-wider">
+                        3. Purchase Ledger Tab
+                    </button>
+                </div>
+
+                <!-- Tab Description / Image Screen -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-gray-50 p-6 md:p-10 rounded-[40px] border border-gray-100">
+                    <!-- Left tab text -->
+                    <div class="lg:col-span-4 space-y-4">
+                        <div id="desc-overview" class="tab-desc space-y-3">
+                            <h4 class="font-800 text-xl text-gray-900">Operational Snapshot</h4>
+                            <p class="text-gray-500 text-sm font-500 leading-relaxed">
+                                Consolidates supplier ratings, onboarding status, PO status breakdown, OTIF, and fulfillment scores, alongside core credentials (GST, PAN, Aadhaar, address).
+                            </p>
+                        </div>
+                        <div id="desc-openpo" class="tab-desc space-y-3 hidden">
+                            <h4 class="font-800 text-xl text-gray-900">Commitment Tracking</h4>
+                            <p class="text-gray-500 text-sm font-500 leading-relaxed">
+                                Displays active, pending, and in-progress purchase orders. Planners can audit ongoing supplier load before committing to new purchase contracts.
+                            </p>
+                        </div>
+                        <div id="desc-ledger" class="tab-desc space-y-3 hidden">
+                            <h4 class="font-800 text-xl text-gray-900">Financial Telemetry</h4>
+                            <p class="text-gray-500 text-sm font-500 leading-relaxed">
+                                Integrates detailed billing, balance reconciliations, payments, and outstanding balances to provide absolute transactional transparency right at the point of action.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Right tab screenshot preview -->
+                    <div class="lg:col-span-8 bg-white p-4 rounded-3xl border border-gray-100 shadow-lg flex justify-center overflow-hidden">
+                        <!-- We load the cropped tabs and display them dynamically -->
+                        <img id="tab-image" src="assets/images/vendor_portal.png" alt="Vendor Portal View" class="w-full h-auto rounded-xl">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer summary box -->
+            <div class="p-10 bg-zinc-950 text-white rounded-[32px] space-y-6 mt-16 border border-zinc-800 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="space-y-3">
+                    <h4 class="font-800 text-xs uppercase tracking-wider text-zinc-400">Architectural Impact</h4>
+                    <p class="text-zinc-300 text-sm leading-relaxed font-500">
+                        Each tab directly addresses the operational gaps identified during research: <strong class="text-white font-700">Overview</strong> solves fragmented identity; <strong class="text-white font-700">Open PO</strong> and <strong class="text-white font-700">Purchase Ledger</strong> solve decision-time latency. Triggering it universally—directly from data grids—respects existing workflows without causing disruptive navigation context switches.
+                    </p>
+                </div>
+                <div class="p-5 bg-emerald-500/10 border-l-4 border-emerald-500 rounded-r-xl">
+                    <p class="font-700 text-base md:text-lg leading-relaxed" style="color: #34d399;">
+                        <span class="text-white font-800">The result:</span> Retailers never leave their tools to evaluate vendors. Decisions and transaction data exist in the same workspace.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="mt-20 pt-8 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-6">
+        <a href="supplymint.html" class="btn-back flex items-center gap-3 text-lg font-600 text-gray-500">
+            <i class="fa-solid fa-arrow-left"></i>
+            <span>Back to Case Study Summary</span>
+        </a>
+        <div class="flex gap-6 text-gray-500 font-600">
+            <a href="https://www.linkedin.com/feed/" target="_blank"
+                class="flex items-center gap-2 hover:text-blue-primary transition">
+                <i class="fa-brands fa-linkedin-in text-sm"></i>
+                <span>LinkedIn</span>
+            </a>
+            <a href="https://www.behance.net/vaibhavmishra31" target="_blank"
+                class="flex items-center gap-2 hover:text-blue-primary transition">
+                <i class="fa-brands fa-behance text-sm"></i>
+                <span>Behance</span>
+            </a>
+        </div>
+    </footer>
+
+    <!-- Interactive script to drive tabs -->
+    <script>
+        function switchTab(tabName) {
+            // Remove active classes from all buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            // Hide all descriptions
+            document.querySelectorAll('.tab-desc').forEach(desc => desc.classList.add('hidden'));
+
+            // Set active button
+            if (tabName === 'overview') {
+                document.getElementById('tab-overview').classList.add('active');
+                document.getElementById('desc-overview').classList.remove('hidden');
+                document.getElementById('tab-image').src = 'assets/images/vendor_portal.png?v=2';
+            } else if (tabName === 'openpo') {
+                document.getElementById('tab-openpo').classList.add('active');
+                document.getElementById('desc-openpo').classList.remove('hidden');
+                document.getElementById('tab-image').src = 'assets/images/case_study_tab_open_po.png?v=2';
+            } else if (tabName === 'ledger') {
+                document.getElementById('tab-ledger').classList.add('active');
+                document.getElementById('desc-ledger').classList.remove('hidden');
+                document.getElementById('tab-image').src = 'assets/images/case_study_tab_ledger.png?v=2';
+            }
+        }
+
+        // Initialize GSAP reveals on section elements
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.utils.toArray('section').forEach((section, i) => {
+            gsap.from(section, {
+                opacity: 0,
+                y: 30,
+                duration: 1,
+                scrollTrigger: {
+                    trigger: section,
+                    start: "top 90%",
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

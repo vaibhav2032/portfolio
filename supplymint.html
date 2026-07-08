@@ -62,6 +62,20 @@
             color: #0047FF;
         }
 
+        .btn-primary {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.05) translateY(-4px) !important;
+            box-shadow: 0 20px 40px rgba(0, 71, 255, 0.15) !important;
+            background-color: #0037D5 !important;
+        }
+
+        .btn-primary:active {
+            transform: scale(0.95) translateY(0) !important;
+        }
+
         .role-tag {
             border: 1px solid #e5e7eb;
             background-color: #f9fafb;
@@ -271,6 +285,79 @@
                         Streamlining design-to-dev handoff by leveraging MCP integration, Claude, and Antigravity to
                         bridge the gap between complex back-end data and intuitive user interfaces.
                     </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Study: Optimizing PO Creation -->
+    <section class="mb-40">
+        <div class="max-w-6xl">
+            <h3
+                class="text-sm font-700 uppercase tracking-widest text-blue-primary mb-12 underline decoration-2 underline-offset-8">
+                Case Study</h3>
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Left: Case Study content -->
+                <div class="lg:col-span-5 space-y-6">
+                    <h2 class="text-3xl font-800 font-sora leading-tight text-gray-900">
+                        Optimizing PO Creation: How Centralizing Vendor Intelligence Reduced Friction for Enterprise Retailers
+                    </h2>
+                    
+                    <div class="space-y-4 pt-6 border-t border-gray-100">
+                        <!-- Challenge Card -->
+                        <div class="bg-amber-50/50 p-5 rounded-2xl border border-amber-100/50 space-y-2 hover:border-amber-200 transition-colors duration-300">
+                            <div class="flex items-center gap-2">
+                                <span class="w-6 h-6 rounded-lg bg-amber-500/10 flex items-center justify-center text-amber-600 shrink-0">
+                                    <i class="fa-solid fa-triangle-exclamation text-xs"></i>
+                                </span>
+                                <h4 class="text-xs uppercase tracking-widest font-800 text-amber-800">The Challenge</h4>
+                            </div>
+                            <p class="text-gray-600 font-500 leading-relaxed text-xs">
+                                Enterprise retailers faced <strong class="text-gray-900 font-700">severe delays and errors</strong> in Purchase Order (PO) creation due to <strong class="text-gray-900 font-700">disjointed vendor data</strong> scattered across legacy screens, resulting in high cognitive load and inaccurate Advanced Shipping Notes (ASNs).
+                            </p>
+                        </div>
+
+                        <!-- Solution Card -->
+                        <div class="bg-blue-50/50 p-5 rounded-2xl border border-blue-100/50 space-y-2 hover:border-blue-200 transition-colors duration-300">
+                            <div class="flex items-center gap-2">
+                                <span class="w-6 h-6 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-600 shrink-0">
+                                    <i class="fa-solid fa-circle-check text-xs"></i>
+                                </span>
+                                <h4 class="text-xs uppercase tracking-widest font-800 text-blue-800">The Solution</h4>
+                            </div>
+                            <p class="text-gray-600 font-500 leading-relaxed text-xs">
+                                We designed a <strong class="text-blue-primary font-700">centralized Vendor Intelligence Hub</strong>. By placing critical ordering telemetry into a <strong class="text-blue-primary font-700">unified workspace</strong>, we eliminated manual steps and screen toggling.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Performance Metrics -->
+                    <div class="grid grid-cols-2 gap-4 pt-6 border-t border-gray-100">
+                        <div>
+                            <span class="block text-4xl font-800 text-blue-primary">25%</span>
+                            <span class="text-xs font-600 text-gray-500 uppercase tracking-wider">Efficiency Gain</span>
+                        </div>
+                        <div>
+                            <span class="block text-4xl font-800 text-blue-primary">40%</span>
+                            <span class="text-xs font-600 text-gray-500 uppercase tracking-wider">Faster PO Cycles</span>
+                        </div>
+                    </div>
+
+                    <!-- CTA Button -->
+                    <div class="pt-6">
+                        <a href="vendor-intelligence.html"
+                            class="inline-flex items-center gap-2 bg-blue-primary text-white px-8 py-3.5 rounded-full text-sm font-600 btn-primary">
+                            <span>View Full Case Study</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Right: Screenshot -->
+                <div class="lg:col-span-7">
+                    <div class="bg-gray-50 p-4 rounded-[40px] border border-gray-100 shadow-xl overflow-hidden hover:scale-[1.01] transition-transform duration-500">
+                        <img src="assets/images/vendor_portal.png" alt="Optimizing PO Creation Dashboard" class="w-full h-auto rounded-[32px] shadow-sm">
+                    </div>
                 </div>
             </div>
         </div>
@@ -653,9 +740,15 @@
         <p>&copy; 2026 Vaibhav Mishra</p>
         <div class="flex gap-8">
             <a href="https://www.linkedin.com/feed/" target="_blank"
-                class="hover:text-blue-primary transition">LinkedIn</a>
+                class="flex items-center gap-2 hover:text-blue-primary transition">
+                <i class="fa-brands fa-linkedin-in text-sm"></i>
+                <span>LinkedIn</span>
+            </a>
             <a href="https://www.behance.net/vaibhavmishra31" target="_blank"
-                class="hover:text-blue-primary transition">Behance</a>
+                class="flex items-center gap-2 hover:text-blue-primary transition">
+                <i class="fa-brands fa-behance text-sm"></i>
+                <span>Behance</span>
+            </a>
         </div>
     </footer>
 
