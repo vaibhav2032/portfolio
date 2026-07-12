@@ -19,14 +19,14 @@
         }
     </script>
     <link
-        href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700;800&family=Inter:wght@400;600;700;800&family=Sora:wght@400;600;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@400;600;700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <style>
         body {
-            font-family: 'Urbanist', sans-serif;
+            font-family: 'Poppins', sans-serif;
             background-color: #ffffff;
             color: #1a1a1a;
             scroll-behavior: smooth;
@@ -36,8 +36,8 @@
             font-family: 'Inter', sans-serif;
         }
 
-        .font-sora {
-            font-family: 'Sora', sans-serif;
+        .font-poppins {
+            font-family: 'Poppins', sans-serif;
         }
 
         .text-blue-primary {
@@ -296,14 +296,17 @@
             <h3
                 class="text-sm font-700 uppercase tracking-widest text-blue-primary mb-12 underline decoration-2 underline-offset-8">
                 Case Study</h3>
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <!-- Heading (Full Width) -->
+            <div class="mb-12">
+                <h2 class="text-[32px] md:text-[48px] font-800 text-gray-900 leading-[1.4] font-poppins">
+                    Optimizing PO Creation: How Centralizing Vendor Intelligence Reduced Friction for Enterprise Retailers
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
                 <!-- Left: Case Study content -->
                 <div class="lg:col-span-5 space-y-6">
-                    <h2 class="text-3xl font-800 font-sora leading-tight text-gray-900">
-                        Optimizing PO Creation: How Centralizing Vendor Intelligence Reduced Friction for Enterprise Retailers
-                    </h2>
-                    
-                    <div class="space-y-4 pt-6 border-t border-gray-100">
+                    <div class="space-y-4">
                         <!-- Challenge Card -->
                         <div class="bg-amber-50/50 p-5 rounded-2xl border border-amber-100/50 space-y-2 hover:border-amber-200 transition-colors duration-300">
                             <div class="flex items-center gap-2">
@@ -441,7 +444,7 @@
                 <!-- Left: Content -->
                 <div class="flex flex-col justify-center">
                     <span class="text-blue-primary font-800 text-sm tracking-widest uppercase mb-4">Phase 01</span>
-                    <h2 class="text-4xl font-800 font-sora mb-6">Mapping the SCM Lifecycle</h2>
+                    <h2 class="text-4xl font-800 font-poppins mb-6">Mapping the SCM Lifecycle</h2>
                     <p class="text-gray-400 text-lg leading-relaxed mb-8">
                         Decoupling Retailer and Vendor workflows to reduce operational friction. By identifying distinct
                         user intents, we modularized the monolithic architecture into specialized, high-velocity paths.
@@ -480,7 +483,7 @@
                 <div class="mb-8">
                     <span class="text-blue-primary font-800 text-sm tracking-widest uppercase mb-3">System
                         Thinking</span>
-                    <h2 class="text-4xl font-800 font-sora mb-3">03-to-01: Strategic Unbundling</h2>
+                    <h2 class="text-4xl font-800 font-poppins mb-3">03-to-01: Strategic Unbundling</h2>
                 </div>
                 <div class="relative pt-2">
                     <!-- Root Node -->
@@ -607,7 +610,7 @@
                 <div class="mb-10 text-center">
                     <span class="text-blue-primary font-800 text-sm tracking-widest uppercase mb-4">Design
                         Engineering</span>
-                    <h2 class="text-4xl font-800 font-sora">Architecting Consistency at Scale</h2>
+                    <h2 class="text-4xl font-800 font-poppins">Architecting Consistency at Scale</h2>
                 </div>
                 <div class="bento-grid">
                     <!-- Component Library -->
@@ -665,7 +668,7 @@
                     <div>
                         <span class="text-blue-primary font-800 text-sm tracking-widest uppercase mb-4">Actionable
                             Visuals</span>
-                        <h2 class="text-4xl font-800 font-sora mb-6">Transforming Data into Action</h2>
+                        <h2 class="text-4xl font-800 font-poppins mb-6">Transforming Data into Action</h2>
                         <p class="text-gray-400 text-lg leading-relaxed mb-8">
                             Visualizing real-time logistics monitoring to reduce cognitive load. Our Logistics Command
                             Center centralizes high-priority alerts and live tracking into a unified, actionable view.
@@ -716,17 +719,17 @@
         <div class="w-full max-w-6xl mx-auto px-6">
             <div class="impact-bar font-inter">
                 <div class="text-center">
-                    <span class="block text-4xl font-800 text-white mb-2 font-sora">-25%</span>
+                    <span class="block text-4xl font-800 text-white mb-2 font-poppins">-25%</span>
                     <span class="text-gray-500 text-[10px] font-700 uppercase tracking-[0.2em]">Task Time</span>
                 </div>
                 <div class="w-px h-12 bg-white/10 my-auto"></div>
                 <div class="text-center">
-                    <span class="block text-4xl font-800 metric-highlight mb-2 font-sora">+40%</span>
+                    <span class="block text-4xl font-800 metric-highlight mb-2 font-poppins">+40%</span>
                     <span class="text-gray-500 text-[10px] font-700 uppercase tracking-[0.2em]">Deployment Speed</span>
                 </div>
                 <div class="w-px h-12 bg-white/10 my-auto"></div>
                 <div class="text-center">
-                    <span class="block text-4xl font-800 metric-highlight-green mb-2 font-sora">1000+</span>
+                    <span class="block text-4xl font-800 metric-highlight-green mb-2 font-poppins">1000+</span>
                     <span class="text-gray-500 text-[10px] font-700 uppercase tracking-[0.2em]">Daily Active
                         Users</span>
                 </div>
