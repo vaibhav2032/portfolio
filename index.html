@@ -41,6 +41,11 @@
             font-weight: 700;
         }
 
+        .sidebar a[href="#skills"]:hover,
+        .sidebar a[href="#skills"].active-nav {
+            color: #a855f7 !important;
+        }
+
         .project-card img {
             transition: transform 0.5s ease;
         }
@@ -201,6 +206,10 @@
             <div class="nav-item-wrapper flex items-center gap-3">
                 <i class="fa-solid fa-arrow-left text-blue-primary text-xs opacity-0 transition-opacity"></i>
                 <a href="#experience" class="nav-link text-gray-400 hover:text-blue-primary transition">Experience</a>
+            </div>
+            <div class="nav-item-wrapper flex items-center gap-3">
+                <i class="fa-solid fa-arrow-left text-[#a855f7] text-xs opacity-0 transition-opacity"></i>
+                <a href="#skills" class="nav-link text-gray-400 hover:text-[#a855f7] transition">Skills</a>
             </div>
         </nav>
     </div>
@@ -391,72 +400,165 @@
 
     <!-- Skills Section -->
     <section id="skills" class="mb-32">
-        <h2 class="text-5xl font-800 text-blue-primary mb-16">Skills</h2>
-
-        <!-- Icons Row (Individual Assets) -->
-        <div class="flex flex-wrap items-center gap-10 mb-16 px-2">
-            <div class="skill-icon-wrapper">
-                <img src="assets/images/skills/figma.png" class="h-10 md:h-12 w-auto object-contain skill-icon"
-                    alt="Figma">
-            </div>
-            <div class="skill-icon-wrapper">
-                <img src="assets/images/skills/spline.png" class="h-10 md:h-12 w-auto object-contain skill-icon"
-                    alt="Spline">
-            </div>
-            <div class="skill-icon-wrapper">
-                <img src="assets/images/skills/burst.png" class="h-10 md:h-12 w-auto object-contain skill-icon"
-                    alt="Burst">
-            </div>
-            <div class="skill-icon-wrapper">
-                <img src="assets/images/skills/photoshop.png" class="h-10 md:h-12 w-auto object-contain skill-icon"
-                    alt="Photoshop">
-            </div>
-            <div class="skill-icon-wrapper">
-                <img src="assets/images/skills/illustrator.png" class="h-10 md:h-12 w-auto object-contain skill-icon"
-                    alt="Illustrator">
-            </div>
-            <div class="skill-icon-wrapper">
-                <img src="assets/images/skills/aftereffects.png" class="h-10 md:h-12 w-auto object-contain skill-icon"
-                    alt="After Effects">
-            </div>
-            <div class="skill-icon-wrapper">
-                <img src="assets/images/skills/chatgpt.png" class="h-10 md:h-12 w-auto object-contain skill-icon"
-                    alt="ChatGPT">
-            </div>
-            <div class="skill-icon-wrapper">
-                <img src="assets/images/skills/sketch.png" class="h-10 md:h-12 w-auto object-contain skill-icon"
-                    alt="Sketch">
-            </div>
-            <div class="skill-icon-wrapper">
-                <img src="assets/images/skills/miro.png" class="h-10 md:h-12 w-auto object-contain skill-icon"
-                    alt="Miro">
-            </div>
-            <div class="skill-icon-wrapper">
-                <img src="assets/images/skills/powerbi.png" class="h-10 md:h-12 w-auto object-contain skill-icon"
-                    alt="Power BI">
+        <div class="flex flex-col md:flex-row md:items-end justify-start gap-x-12 gap-y-4 mb-16">
+            <h2 class="text-5xl font-800 text-blue-primary leading-none">Skills</h2>
+            
+            <!-- Tab Controls -->
+            <div class="flex gap-8 border-b border-gray-100 pb-0">
+                <button id="tab-uiux" onclick="switchSkillTab('uiux')" 
+                    class="pb-2 text-xl font-700 transition-all duration-300 border-b-2 border-blue-primary text-blue-primary focus:outline-none">
+                    UI UX Design
+                </button>
+                <button id="tab-outside" onclick="switchSkillTab('outside')" 
+                    class="pb-2 text-xl font-600 transition-all duration-300 text-gray-400 hover:text-gray-600 border-b-2 border-transparent focus:outline-none">
+                    Outside UI UX
+                </button>
             </div>
         </div>
 
-        <!-- Tags Cloud (Exact match to screenshot) -->
-        <div class="flex flex-wrap gap-3 max-w-4xl">
-            <span class="skill-tag">UI & UX Design</span>
-            <span class="skill-tag">Design Systems</span>
-            <span class="skill-tag">Components & Variables</span>
-            <span class="skill-tag">Vibe Coding</span>
-            <span class="skill-tag">Wireframing</span>
-            <span class="skill-tag">User Research</span>
-            <span class="skill-tag">Technical Handoff</span>
-            <span class="skill-tag">Prototyping</span>
-            <span class="skill-tag">MCP Integration</span>
-            <span class="skill-tag">Data Visualization</span>
-            <span class="skill-tag">Web & App Design</span>
-            <span class="skill-tag">UI/UX Testing</span>
-            <span class="skill-tag">Agent-First Design</span>
-            <span class="skill-tag">Information Architecture</span>
+        <!-- UI UX Tab Content -->
+        <div id="content-uiux" class="skill-tab-content active transition-opacity duration-300">
+            <!-- Icons Row (Individual Assets) -->
+            <div class="flex flex-wrap items-center gap-10 mb-16 px-2">
+                <div class="skill-icon-wrapper">
+                    <img src="assets/images/skills/figma.png" class="h-10 md:h-12 w-auto object-contain skill-icon"
+                        alt="Figma">
+                </div>
+                <div class="skill-icon-wrapper">
+                    <img src="assets/images/skills/spline.png" class="h-10 md:h-12 w-auto object-contain skill-icon"
+                        alt="Spline">
+                </div>
+                <div class="skill-icon-wrapper">
+                    <img src="assets/images/skills/burst.png" class="h-10 md:h-12 w-auto object-contain skill-icon"
+                        alt="Burst">
+                </div>
+                <div class="skill-icon-wrapper">
+                    <img src="assets/images/skills/photoshop.png" class="h-10 md:h-12 w-auto object-contain skill-icon"
+                        alt="Photoshop">
+                </div>
+                <div class="skill-icon-wrapper">
+                    <img src="assets/images/skills/illustrator.png" class="h-10 md:h-12 w-auto object-contain skill-icon"
+                        alt="Illustrator">
+                </div>
+                <div class="skill-icon-wrapper">
+                    <img src="assets/images/skills/aftereffects.png" class="h-10 md:h-12 w-auto object-contain skill-icon"
+                        alt="After Effects">
+                </div>
+                <div class="skill-icon-wrapper">
+                    <img src="assets/images/skills/chatgpt.png" class="h-10 md:h-12 w-auto object-contain skill-icon"
+                        alt="ChatGPT">
+                </div>
+                <div class="skill-icon-wrapper">
+                    <img src="assets/images/skills/sketch.png" class="h-10 md:h-12 w-auto object-contain skill-icon"
+                        alt="Sketch">
+                </div>
+                <div class="skill-icon-wrapper">
+                    <img src="assets/images/skills/miro.png" class="h-10 md:h-12 w-auto object-contain skill-icon"
+                        alt="Miro">
+                </div>
+                <div class="skill-icon-wrapper">
+                    <img src="assets/images/skills/powerbi.png" class="h-10 md:h-12 w-auto object-contain skill-icon"
+                        alt="Power BI">
+                </div>
+            </div>
+
+            <!-- Tags Cloud (Exact match to screenshot) -->
+            <div class="flex flex-wrap gap-3 max-w-4xl">
+                <span class="skill-tag">UI & UX Design</span>
+                <span class="skill-tag">Design Systems</span>
+                <span class="skill-tag">Components & Variables</span>
+                <span class="skill-tag">Vibe Coding</span>
+                <span class="skill-tag">Wireframing</span>
+                <span class="skill-tag">User Research</span>
+                <span class="skill-tag">Technical Handoff</span>
+                <span class="skill-tag">Prototyping</span>
+                <span class="skill-tag">MCP Integration</span>
+                <span class="skill-tag">Data Visualization</span>
+                <span class="skill-tag">Web & App Design</span>
+                <span class="skill-tag">UI/UX Testing</span>
+                <span class="skill-tag">Agent-First Design</span>
+                <span class="skill-tag">Information Architecture</span>
+            </div>
+        </div>
+
+        <!-- Outside UI UX Tab Content -->
+        <div id="content-outside" class="skill-tab-content hidden opacity-0 transition-opacity duration-300">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-2">
+                <!-- Card 1: Standup Comedy -->
+                <div class="bg-[#181818] rounded-[24px] border border-white/5 overflow-hidden transition-all duration-300 hover:border-blue-primary/30 group">
+                    <div class="aspect-square overflow-hidden relative">
+                        <img src="assets/images/skills/standup_comedy.png" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Standup Comedy">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-700 text-white mb-2 font-sora">Standup Comedy</h3>
+                        <p class="text-xs text-gray-400 leading-relaxed font-400">Tight premises, reading the room, and performing under pressure.</p>
+                    </div>
+                </div>
+
+                <!-- Card 2: Travelling -->
+                <div class="bg-[#181818] rounded-[24px] border border-white/5 overflow-hidden transition-all duration-300 hover:border-blue-primary/30 group">
+                    <div class="aspect-square overflow-hidden relative">
+                        <img src="assets/images/skills/travelling.png" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Travelling">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-700 text-white mb-2 font-sora">Travelling</h3>
+                        <p class="text-xs text-gray-400 leading-relaxed font-400">Exploring new cultures, building adaptability, and spontaneous problem solving.</p>
+                    </div>
+                </div>
+
+                <!-- Card 3: Learning New Things -->
+                <div class="bg-[#181818] rounded-[24px] border border-white/5 overflow-hidden transition-all duration-300 hover:border-blue-primary/30 group">
+                    <div class="aspect-square overflow-hidden relative">
+                        <img src="assets/images/skills/learning_new_thing.png" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Learning New Things">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-700 text-white mb-2 font-sora">Learning New Things</h3>
+                        <p class="text-xs text-gray-400 leading-relaxed font-400">Constantly expanding horizons, diving into hobbies, and mastering new skills.</p>
+                    </div>
+                </div>
+
+                <!-- Card 4: Fitness -->
+                <div class="bg-[#181818] rounded-[24px] border border-white/5 overflow-hidden transition-all duration-300 hover:border-blue-primary/30 group">
+                    <div class="aspect-square overflow-hidden relative">
+                        <img src="assets/images/skills/fitness.png" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Fitness">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-700 text-white mb-2 font-sora">Fitness</h3>
+                        <p class="text-xs text-gray-400 leading-relaxed font-400">Building physical discipline, mental resilience, and pushing daily boundaries.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
     <script>
         gsap.registerPlugin(ScrollTrigger);
+
+        function switchSkillTab(tab) {
+            const uiuxBtn = document.getElementById('tab-uiux');
+            const outsideBtn = document.getElementById('tab-outside');
+            const uiuxContent = document.getElementById('content-uiux');
+            const outsideContent = document.getElementById('content-outside');
+
+            if (tab === 'uiux') {
+                uiuxBtn.className = 'pb-2 text-xl font-700 transition-all duration-300 border-b-2 border-blue-primary text-blue-primary focus:outline-none';
+                outsideBtn.className = 'pb-2 text-xl font-600 transition-all duration-300 text-gray-400 hover:text-gray-600 border-b-2 border-transparent focus:outline-none';
+
+                gsap.to(outsideContent, { opacity: 0, duration: 0.2, onComplete: () => {
+                    outsideContent.classList.add('hidden');
+                    uiuxContent.classList.remove('hidden');
+                    gsap.fromTo(uiuxContent, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.3 });
+                }});
+            } else {
+                outsideBtn.className = 'pb-2 text-xl font-700 transition-all duration-300 border-b-2 border-blue-primary text-blue-primary focus:outline-none';
+                uiuxBtn.className = 'pb-2 text-xl font-600 transition-all duration-300 text-gray-400 hover:text-gray-600 border-b-2 border-transparent focus:outline-none';
+
+                gsap.to(uiuxContent, { opacity: 0, duration: 0.2, onComplete: () => {
+                    uiuxContent.classList.add('hidden');
+                    outsideContent.classList.remove('hidden');
+                    gsap.fromTo(outsideContent, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.3 });
+                }});
+            }
+        }
 
         // Background Parallax
         gsap.utils.toArray('.parallax-bg').forEach(bg => {
@@ -507,7 +609,7 @@
         sections.forEach(section => {
             ScrollTrigger.create({
                 trigger: section,
-                start: "top 30%",
+                start: section.getAttribute('id') === 'skills' ? "top 80%" : "top 30%",
                 end: "bottom 30%",
                 onToggle: self => {
                     if (self.isActive) {
