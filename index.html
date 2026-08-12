@@ -46,6 +46,42 @@
             color: #a855f7 !important;
         }
 
+        /* Sticky Header & Scroll Shrink Styles */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding-top: 3rem;
+            padding-bottom: 2rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            margin-bottom: 5rem !important;
+        }
+
+        .header-scrolled {
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            margin-bottom: 3rem !important;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+        }
+
+        header h1, header p, header .resume-text {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .header-scrolled h1 {
+            font-size: 1.8rem !important;
+            line-height: 1.2 !important;
+            margin-bottom: 0.1rem !important;
+        }
+
+        .header-scrolled p,
+        .header-scrolled .resume-text {
+            font-size: 0.95rem !important;
+        }
+
         .project-card img {
             transition: transform 0.5s ease;
         }
@@ -149,18 +185,18 @@
     </div>
 
     <!-- Header -->
-    <header class="mb-20 flex justify-between items-start">
+    <header class="mb-20 flex justify-between items-center">
         <div>
             <h1 class="text-5xl md:text-6xl font-800 text-blue-primary mb-2">Vaibhav Mishra</h1>
             <p class="text-xl font-600 text-gray-800">Product Designer</p>
         </div>
         <div class="hidden md:flex items-center gap-6 text-lg font-600">
-            <!-- Email (Interactive) -->
-            <a href="mailto:vaibhavmishra2198@gmail.com" class="flex items-center gap-3 hover:opacity-80 transition">
+            <!-- Resume (Interactive) -->
+            <a href="assets/Vaibhav_Mishra_Product_Designer_Resume.pdf" target="_blank" class="flex items-center gap-3 hover:opacity-80 transition">
                 <div class="w-9 h-9 rounded-full bg-blue-primary flex items-center justify-center text-white">
-                    <i class="fa-solid fa-envelope text-xs"></i>
+                    <i class="fa-solid fa-file-lines text-xs"></i>
                 </div>
-                <span class="text-gray-800">vaibhavmishra2198@gmail.com</span>
+                <span class="resume-text text-xl font-600 text-gray-800">Resume</span>
             </a>
 
             <!-- Socials -->
@@ -532,6 +568,16 @@
     </section>
     <script>
         gsap.registerPlugin(ScrollTrigger);
+
+        // Sticky Header Scroll Detection
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 20) {
+                header.classList.add('header-scrolled');
+            } else {
+                header.classList.remove('header-scrolled');
+            }
+        });
 
         function switchSkillTab(tab) {
             const uiuxBtn = document.getElementById('tab-uiux');
