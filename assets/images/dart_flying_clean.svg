@@ -1,0 +1,44 @@
+<svg class="w-10 h-10 sm:w-11 sm:h-11 shrink-0" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g filter="url(#filter_goal_dart)">
+    <!-- Point / Tip (Polished Chrome / Steel) -->
+    <path d="M48 48 L41 42 L42 41 L49 47 Z" fill="#CBD5E1" />
+    <path d="M51 51 L48 48 L49 47 Z" fill="#64748B" />
+
+    <!-- Barrel / Grip (3D faceted cylinders in theme blue) -->
+    <!-- Highlight face (Lightest tone: #DBEAFE) -->
+    <path d="M41 42 L33 34 L36 31 L44 39 Z" fill="#DBEAFE" />
+    <!-- Midtone face (Electric blue: #60A5FA) -->
+    <path d="M44 39 L36 31 L34 33 L42 41 Z" fill="#60A5FA" />
+    <!-- Extrusion / Base face (Deep theme blue: #0047FF) -->
+    <path d="M42 41 L34 33 L33 35 L41 43 Z" fill="#0047FF" />
+
+    <!-- Barrel Grip Rings / Ridges -->
+    <path d="M38 39 L40 41 L39 42 L37 40 Z" fill="#1D4ED8" />
+    <path d="M35 36 L37 38 L36 39 L34 37 Z" fill="#1D4ED8" />
+
+    <!-- Shaft -->
+    <!-- Highlight face -->
+    <path d="M33 34 L25 26 L27 24 L35 32 Z" fill="#BFDBFE" />
+    <!-- Shadow face -->
+    <path d="M35 32 L27 24 L26 26 L34 34 Z" fill="#0038CC" />
+
+    <!-- 3D Flights / Fins (4-way isometric) -->
+    <!-- Top Fin (Light tone: #DBEAFE) -->
+    <path d="M26 25 L19 13 L12 20 L22 29 Z" fill="#DBEAFE" />
+    <path d="M26 25 L19 13 L21 12 L28 24 Z" fill="#EFF6FF" />
+
+    <!-- Left Fin (Midtone: #60A5FA) -->
+    <path d="M23 26 L10 21 L8 29 L21 31 Z" fill="#60A5FA" />
+
+    <!-- Bottom Fin (Deep theme blue: #0047FF) -->
+    <path d="M24 28 L17 40 L23 43 L28 33 Z" fill="#0047FF" />
+
+    <!-- Right Fin (Royal shadow: #1E40AF) -->
+    <path d="M27 27 L37 29 L36 23 L25 24 Z" fill="#1E40AF" />
+  </g>
+  <defs>
+    <filter id="filter_goal_dart" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2.5" stdDeviation="3" flood-color="#0047FF" flood-opacity="0.42"/>
+    </filter>
+  </defs>
+</svg>

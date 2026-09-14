@@ -1,0 +1,41 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="target_dart_glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2.5" stdDeviation="3" flood-color="#0047FF" flood-opacity="0.42"/>
+    </filter>
+  </defs>
+  <g filter="url(#target_dart_glow)">
+    <!-- 3D Target Disk Base (Side Extrusions) -->
+    <!-- Lower cylinder wall (deep blue) -->
+    <path d="M8 32 C8 42 18 49 30 49 C42 49 52 42 52 32 L52 37 C52 47 42 54 30 54 C18 54 8 47 8 37 Z" fill="#0038CC" />
+    <path d="M8 34 C8 43 18 50 30 50 C42 50 52 43 52 34 L52 36 C52 45 42 52 30 52 C18 52 8 45 8 36 Z" fill="#0047FF" />
+
+    <!-- Top Isometric Elliptical Surface (Outer Blue Ring) -->
+    <ellipse cx="30" cy="32" rx="22" ry="13" fill="#2563EB" />
+
+    <!-- Outer White Ring -->
+    <ellipse cx="30" cy="32" rx="17" ry="10" fill="#EFF6FF" />
+
+    <!-- Middle Blue Ring -->
+    <ellipse cx="30" cy="32" rx="12" ry="7" fill="#3B82F6" />
+
+    <!-- Inner White Ring -->
+    <ellipse cx="30" cy="32" rx="7" ry="4.2" fill="#DBEAFE" />
+
+    <!-- Center Bullseye (Vibrant Red or Deep Blue Accent) -->
+    <ellipse cx="30" cy="32" rx="3.5" ry="2.2" fill="#0047FF" />
+
+    <!-- Embedded Dart Arrow (isometric hitting center at (30, 32)) -->
+    <!-- Arrow tip stuck in center -->
+    <path d="M29.5 31.5 L30.5 32.5 L30 33 Z" fill="#1E293B" />
+    <!-- Steel Shaft sticking up-right towards (48, 14) -->
+    <path d="M30 32 L47 15 L48.5 16.5 L31.5 33.5 Z" fill="#94A3B8" />
+    <!-- Dart Flights (Fins at top-right: 3D faceted) -->
+    <!-- Top Fin -->
+    <path d="M44 18 L48 9 L54 15 L48 20 Z" fill="#BFDBFE" />
+    <!-- Right Fin -->
+    <path d="M47 16 L57 14 L56 21 L48 20 Z" fill="#60A5FA" />
+    <!-- Bottom Fin -->
+    <path d="M46 19 L50 28 L46 27 L43 21 Z" fill="#0047FF" />
+  </g>
+</svg>
