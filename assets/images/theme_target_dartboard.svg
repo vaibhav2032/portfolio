@@ -1,0 +1,60 @@
+<svg class="w-12 h-12 sm:w-[52px] sm:h-[52px] shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-0.5" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="min_target_filter" x="-25%" y="-25%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="3.5" stdDeviation="3" flood-color="#0047FF" flood-opacity="0.25"/>
+    </filter>
+    <linearGradient id="min_rim_grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#93C5FD"/>
+      <stop offset="30%" stop-color="#3B82F6"/>
+      <stop offset="70%" stop-color="#1D4ED8"/>
+      <stop offset="100%" stop-color="#1E3A8A"/>
+    </linearGradient>
+    <linearGradient id="min_face_blue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#60A5FA"/>
+      <stop offset="100%" stop-color="#2563EB"/>
+    </linearGradient>
+  </defs>
+
+  <g filter="url(#min_target_filter)">
+    <!-- Soft ambient floor shadow -->
+    <ellipse cx="26" cy="57" rx="14" ry="3.5" fill="#0047FF" opacity="0.18"/>
+
+    <!-- 3D Target Disk: Center at (28, 35), rotated -30 deg -->
+    <g transform="translate(28, 35) rotate(-30)">
+      <!-- 3D Cylindrical Rim (Upper side) -->
+      <path d="M -21 0 L -21 -7 A 21 13 0 0 1 21 -7 L 21 0 A 21 13 0 0 0 -21 0 Z" fill="url(#min_rim_grad)"/>
+      <!-- Crisp Top Rim Highlight Stroke -->
+      <path d="M -20.5 -7 A 21 13 0 0 1 20.5 -7" stroke="#EFF6FF" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+
+      <!-- Minimalist Rings: Blue -> White -> Blue -> White Center Bullseye -->
+      <!-- Ring 1: Outer Blue -->
+      <ellipse cx="0" cy="0" rx="21" ry="13" fill="url(#min_face_blue)"/>
+      <!-- Ring 2: Clean Bold White -->
+      <ellipse cx="0" cy="0" rx="15.8" ry="9.8" fill="#FFFFFF"/>
+      <!-- Ring 3: Mid Blue -->
+      <ellipse cx="0" cy="0" rx="10.8" ry="6.7" fill="#3B82F6"/>
+      <!-- Ring 4: Center Pure White Bullseye -->
+      <ellipse cx="0" cy="0" rx="5.8" ry="3.6" fill="#FFFFFF"/>
+
+      <!-- Subtle Radial Glassy Sector Shadow -->
+      <path d="M 0 0 L 8 12 A 21 13 0 0 1 -7 12 Z" fill="#0047FF" opacity="0.12"/>
+    </g>
+
+    <!-- Arrow Cast Shadow on Target -->
+    <line x1="28" y1="35" x2="33" y2="40" stroke="#001855" stroke-width="2" opacity="0.4" stroke-linecap="round"/>
+
+    <!-- Solid Dark Slate Arrow Shaft -->
+    <line x1="28" y1="35" x2="52" y2="20" stroke="#1F2937" stroke-width="3" stroke-linecap="round"/>
+    <line x1="28" y1="35" x2="52" y2="20" stroke="#4B5563" stroke-width="1.2" stroke-linecap="round"/>
+
+    <!-- Minimalist 3D Red Fins (Matching User Reference) -->
+    <!-- Upper Wing Facets -->
+    <polygon points="50,21 57,11 54,19 46,24" fill="#FF4D4D"/>
+    <polygon points="50,21 57,11 63,16 52,20" fill="#E60000"/>
+    <!-- Lower Wing Facets -->
+    <polygon points="50,21 63,26 55,23 48,22" fill="#CC0000"/>
+    <polygon points="50,21 63,26 60,30 52,23" fill="#990000"/>
+    <!-- Center Shaft Cap -->
+    <circle cx="53" cy="19.5" r="1.5" fill="#111827"/>
+  </g>
+</svg>
