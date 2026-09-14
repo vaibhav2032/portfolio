@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaibhav Mishra | Product Designer</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #ffffff;
+            color: #1a1a1a;
+            scroll-behavior: smooth;
+        }
+
+        .text-blue-primary {
+            color: #0047FF;
+        }
+
+        .bg-blue-primary {
+            background-color: #0047FF;
+        }
+
+        .nav-link {
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #0047FF;
+        }
+
+        .active-nav {
+            color: #0047FF;
+            font-weight: 700;
+        }
+
+        .sidebar a[href="#skills"]:hover,
+        .sidebar a[href="#skills"].active-nav {
+            color: #a855f7 !important;
+        }
+
+        /* Sticky Header & Scroll Shrink Styles */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding-top: 3rem;
+            padding-bottom: 2rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            margin-bottom: 5rem !important;
+        }
+
+        .header-scrolled {
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            margin-bottom: 3rem !important;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+        }
+
+        header h1, header p, header .resume-text {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .header-scrolled h1 {
+            font-size: 1.8rem !important;
+            line-height: 1.2 !important;
+            margin-bottom: 0.1rem !important;
+        }
+
+        .header-scrolled p,
+        .header-scrolled .resume-text {
+            font-size: 0.95rem !important;
+        }
+
+        .project-card img {
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover img {
+            transform: scale(1.02);
+        }
+
+        .sidebar {
+            position: fixed;
+            right: 2%;
+            top: 15%;
+            z-index: 50;
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 24px 28px;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .btn-primary {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.05) translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 71, 255, 0.15);
+            background-color: #0037D5;
+        }
+
+        .btn-primary:active {
+            transform: scale(0.95) translateY(0);
+        }
+
+        .skill-tag {
+            border: 1px solid #d1d5db;
+            background-color: white;
+            padding: 6px 16px;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #374151;
+            transition: all 0.2s ease;
+        }
+
+        .skill-tag:hover {
+            border-color: #0047FF;
+            color: #0047FF;
+        }
+
+        .skill-icon-wrapper {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s ease;
+        }
+
+        .skill-icon-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 135%;
+            height: 135%;
+            border-radius: 20px;
+            background-color: #F2F8FF;
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.7);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .skill-icon-wrapper:hover::after {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .skill-icon {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            z-index: 10;
+        }
+
+        .skill-icon-wrapper:hover .skill-icon {
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+
+<body class="px-6 md:px-24 py-12 max-w-7xl mx-auto">
+    <!-- Background Parallax Elements -->
+    <div class="fixed top-0 left-0 w-full h-full pointer-events-none -z-10 overflow-hidden">
+        <div class="parallax-bg absolute top-20 right-[10%] w-64 h-64 border border-blue-50 rounded-full opacity-30"
+            data-speed="0.1"></div>
+        <div class="parallax-bg absolute top-[40%] left-[5%] w-96 h-96 border border-gray-100 rounded-full opacity-20"
+            data-speed="0.2"></div>
+        <div class="parallax-bg absolute bottom-20 right-[20%] w-48 h-48 border border-blue-100 rounded-full opacity-15"
+            data-speed="0.15"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="mb-20 flex justify-between items-center">
+        <div>
+            <h1 class="text-5xl md:text-6xl font-800 text-blue-primary mb-2">Vaibhav Mishra</h1>
+            <p class="text-xl font-600 text-gray-800">Product Designer</p>
+        </div>
+        <div class="hidden md:flex items-center gap-6 text-lg font-600">
+            <!-- Resume (Interactive) -->
+            <a href="assets/Vaibhav_Mishra_Product_Designer_Resume.pdf" target="_blank" class="flex items-center gap-3 hover:opacity-80 transition">
+                <div class="w-9 h-9 rounded-full bg-blue-primary flex items-center justify-center text-white">
+                    <i class="fa-solid fa-file-lines text-xs"></i>
+                </div>
+                <span class="resume-text text-xl font-600 text-gray-800">Resume</span>
+            </a>
+
+            <!-- Socials -->
+            <div class="flex items-center gap-3 ml-2 border-l-2 pl-4 border-gray-200">
+                <a href="https://www.linkedin.com/feed/" target="_blank"
+                    class="w-9 h-9 rounded-full bg-blue-primary flex items-center justify-center text-white hover:opacity-80 transition">
+                    <i class="fa-brands fa-linkedin-in text-xs"></i>
+                </a>
+                <a href="https://www.instagram.com/vaibhav2032/" target="_blank"
+                    class="w-9 h-9 rounded-full bg-blue-primary flex items-center justify-center text-white hover:opacity-80 transition">
+                    <i class="fa-brands fa-instagram text-xs"></i>
+                </a>
+                <a href="https://www.behance.net/vaibhavmishra31" target="_blank"
+                    class="w-9 h-9 rounded-full bg-blue-primary flex items-center justify-center text-white hover:opacity-80 transition">
+                    <i class="fa-brands fa-behance text-xs"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Bio / About Section -->
+    <section id="about" class="mb-32 max-w-2xl">
+        <p class="text-gray-600 leading-relaxed text-lg">
+            Product Designer with a passion for crafting intuitive, user-centric digital experiences. Skilled in Figma,
+            layout, UI Dynamics, Prototypes, UI/UX Design, and Strategy. Adept at creating compelling visual stories and
+            building technologies, consistently delivering high-quality results. Eager to contribute to a collaborative
+            and innovative team environment and making a difference building beautiful UX design through research and
+            thoughtful design.
+        </p>
+    </section>
+
+    <!-- Floating Sidebar Navigation -->
+    <div class="sidebar hidden md:block">
+        <nav class="flex flex-col gap-4 items-end text-sm font-700 uppercase tracking-widest">
+            <div class="nav-item-wrapper flex items-center gap-3">
+                <i class="fa-solid fa-arrow-left text-blue-primary text-xs opacity-100 transition-opacity"></i>
+                <a href="#about" class="nav-link active-nav">About</a>
+            </div>
+            <div class="nav-item-wrapper flex items-center gap-3">
+                <i class="fa-solid fa-arrow-left text-blue-primary text-xs opacity-0 transition-opacity"></i>
+                <a href="#projects" class="nav-link text-gray-400 hover:text-blue-primary transition">Projects</a>
+            </div>
+            <div class="nav-item-wrapper flex items-center gap-3">
+                <i class="fa-solid fa-arrow-left text-blue-primary text-xs opacity-0 transition-opacity"></i>
+                <a href="#experience" class="nav-link text-gray-400 hover:text-blue-primary transition">Experience</a>
+            </div>
+            <div class="nav-item-wrapper flex items-center gap-3">
+                <i class="fa-solid fa-arrow-left text-[#a855f7] text-xs opacity-0 transition-opacity"></i>
+                <a href="#skills" class="nav-link text-gray-400 hover:text-[#a855f7] transition">Skills</a>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Projects Section -->
+    <section id="projects" class="mb-32">
+        <h2 class="text-5xl font-800 text-blue-primary mb-20">Projects</h2>
+
+        <div class="space-y-40">
+            <!-- Project 1: Supplymint -->
+            <div class="flex flex-col md:flex-row items-center gap-12 project-card">
+                <div class="w-full md:w-1/2">
+                    <h3 class="text-3xl font-700 mb-6 text-gray-800">Supplymint - B2B SaaS</h3>
+                    <p class="text-gray-600 mb-8 leading-relaxed max-w-md">
+                        Supplymint is a unified SaaS platform that digitizes and automates the entire retail and B2B
+                        supply chain, empowering teams from smart procurement and predictive inventory to seamless B2B
+                        sales — enabling data-driven decisions, real-time visibility, and scalable growth.
+                    </p>
+                    <div class="flex flex-wrap items-center gap-4">
+                        <a href="supplymint.html"
+                            class="inline-block bg-blue-primary text-white px-10 py-3 rounded-full text-sm font-600 btn-primary">About Project</a>
+                        <a href="vendor-intelligence.html"
+                            class="inline-flex items-center gap-2 border-2 border-blue-primary text-blue-primary px-8 py-2.5 rounded-full text-sm font-600 hover:bg-blue-primary hover:text-white transition-all duration-300">
+                            <span>Explore Case Study</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2">
+                    <img src="assets/images/supplymint.png" alt="Supplymint" class="rounded-3xl">
+                </div>
+            </div>
+
+            <!-- Project 2: Blood Care (Alternating) -->
+            <div class="flex flex-col md:flex-row-reverse items-center gap-12 project-card">
+                <div class="w-full md:w-1/2">
+                    <h3 class="text-3xl font-700 mb-6 text-gray-800">Blood Care - Case study</h3>
+                    <p class="text-gray-600 mb-8 leading-relaxed max-w-md">
+                        A health-tech solution designed to streamline blood donation and supply chain management for
+                        clinics and hospitals, ensuring real-time visibility and life-saving efficiency.
+                    </p>
+                    <a href="https://www.behance.net/gallery/191016171/Blood-Care-Application-UI-UX-Case-Study"
+                        target="_blank"
+                        class="inline-block bg-blue-primary text-white px-10 py-3 rounded-full text-sm font-600 btn-primary">See
+                        More</a>
+                </div>
+                <div class="w-full md:w-1/2">
+                    <img src="assets/images/blood_care.png" alt="Blood Care" class="rounded-3xl">
+                </div>
+            </div>
+
+            <!-- Project 3: amasol -->
+            <div class="flex flex-col md:flex-row items-center gap-12 project-card">
+                <div class="w-full md:w-1/2">
+                    <h3 class="text-3xl font-700 mb-6 text-gray-800">amasol - IT Consultancy</h3>
+                    <p class="text-gray-600 mb-8 leading-relaxed max-w-md">
+                        amasol is a 25-year-old IT consultancy and managed service provider founded in Munich, helping clients like Volkswagen, DB Schenker, and Generali achieve observability and IT reliability across complex, multi-cloud environments. Contributed UI design for their core SaaS platform, simplifying dense, data-heavy monitoring workflows into a clean interface that translated high-volume technical signals into insights enterprise IT teams could act on quickly.
+                    </p>
+                    <a href="https://amasol.com/" target="_blank"
+                        class="inline-block bg-blue-primary text-white px-10 py-3 rounded-full text-sm font-600 btn-primary">Visit
+                        Website</a>
+                </div>
+                <div class="w-full md:w-1/2">
+                    <div class="aspect-[4/3] w-full flex items-center justify-center bg-gradient-to-tr from-gray-50 to-gray-100 border border-gray-200 rounded-3xl p-12 shadow-sm overflow-hidden">
+                        <img src="assets/images/amasol_logo.png" alt="amasol" class="max-w-[75%] h-auto object-contain">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 4: agileRN (Alternating) -->
+            <div class="flex flex-col md:flex-row-reverse items-center gap-12 project-card">
+                <div class="w-full md:w-1/2">
+                    <h3 class="text-3xl font-700 mb-6 text-gray-800">agileRN - Healthcare SaaS</h3>
+                    <p class="text-gray-600 mb-8 leading-relaxed max-w-md">
+                        agileRN is a home infusion therapy platform connecting patients, nurses, and physicians for coordinated at-home care. Designed onboarding flows for all three user types, along with scheduling and care coordination screens, focusing on clarity and trust for a sensitive, multi-user healthcare workflow.
+                    </p>
+                    <a href="https://agile-rn.com/" target="_blank"
+                        class="inline-block bg-blue-primary text-white px-10 py-3 rounded-full text-sm font-600 btn-primary">Visit
+                        website</a>
+                </div>
+                <div class="w-full md:w-1/2">
+                    <div class="aspect-[4/3] w-full flex items-center justify-center bg-gradient-to-tr from-[#F0F8FA] to-[#E6F3F5] border border-teal-100 rounded-3xl p-12 shadow-sm overflow-hidden">
+                        <img src="assets/images/agile_rn_logo.png" alt="agileRN" class="max-w-[80%] h-auto object-contain">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 5: Dashboard Designs -->
+            <div class="flex flex-col md:flex-row items-center gap-12 project-card">
+                <div class="w-full md:w-1/2">
+                    <h3 class="text-3xl font-700 mb-6 text-gray-800">Dashboard Designs</h3>
+                    <p class="text-gray-600 mb-8 leading-relaxed max-w-md">
+                        High-performance dashboard interfaces for data-intensive applications. Focused on clarity,
+                        real-time analytics, and seamless user interaction for complex ERP environments.
+                    </p>
+                    <a href="https://www.behance.net/gallery/231285231/Banking-Dashboard" target="_blank"
+                        class="inline-block bg-blue-primary text-white px-10 py-3 rounded-full text-sm font-600 btn-primary">See
+                        More</a>
+                </div>
+                <div class="w-full md:w-1/2">
+                    <img src="assets/images/dashboards.png" alt="Dashboard" class="rounded-3xl">
+                </div>
+            </div>
+
+            <!-- Project 6: Websites (Alternating) -->
+            <div class="flex flex-col md:flex-row-reverse items-center gap-12 project-card">
+                <div class="w-full md:w-1/2">
+                    <h3 class="text-3xl font-700 mb-6 text-gray-800">Websites</h3>
+                    <p class="text-gray-600 mb-8 leading-relaxed max-w-md">
+                        A collection of responsive, high-end corporate and product websites designed to elevate brand
+                        identity and drive conversion through thoughtful UX and visual storytelling.
+                    </p>
+                    <a href="https://www.behance.net/gallery/247016699/Wearable-Website" target="_blank"
+                        class="inline-block bg-blue-primary text-white px-10 py-3 rounded-full text-sm font-600 btn-primary">See
+                        More</a>
+                </div>
+                <div class="w-full md:w-1/2">
+                    <img src="assets/images/websites.png" alt="Websites" class="rounded-3xl">
+                </div>
+            </div>
+
+            <!-- Project 7: Mobile App -->
+            <div class="flex flex-col md:flex-row items-center gap-12 project-card">
+                <div class="w-full md:w-1/2">
+                    <h3 class="text-3xl font-700 mb-6 text-gray-800">Mobile app</h3>
+                    <p class="text-gray-600 mb-8 leading-relaxed max-w-md">
+                        A high-performance trading and finance mobile application designed for seamless market
+                        engagement. Features real-time data visualizations, personalized portfolio tracking, and a
+                        vibrant, professional UI that simplifies complex financial decision-making.
+                    </p>
+                    <a href="https://www.behance.net/gallery/208804653/Trading-Application-UI-Design" target="_blank"
+                        class="inline-block bg-blue-primary text-white px-10 py-3 rounded-full text-sm font-600 btn-primary">See
+                        More</a>
+                </div>
+                <div class="w-full md:w-1/2">
+                    <img src="assets/images/mobile_app.png" alt="Mobile App" class="rounded-3xl">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="mb-32">
+        <h2 class="text-5xl font-800 text-blue-primary mb-4">Experience</h2>
+        <p class="text-gray-500 font-600 mb-12">3 years and 6 months</p>
+
+        <div class="space-y-12">
+            <div>
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-2xl font-700 text-gray-800">Supplymint <span
+                            class="text-gray-400 font-400 text-sm ml-2">| Product Designer</span></h3>
+                    <span class="text-sm font-600 text-gray-800">Gurugram (Jan 25 - Present)</span>
+                </div>
+                <ul class="space-y-3 text-gray-600 text-sm leading-relaxed list-none">
+                    <li class="flex gap-2"><span>·</span> Leading end-to-end UI/UX design for a comprehensive Supply
+                        Chain Management SaaS, specializing in scalable Design Systems for Procurement, Planning, and
+                        Sales modules.</li>
+                    <li class="flex gap-2"><span>·</span> Architecting high-fidelity, data-driven dashboards for
+                        retailers and vendors, focusing on layout hierarchy and actionable insight delivery.</li>
+                    <li class="flex gap-2"><span>·</span> Leveraging MCP integration to bridge complex back-end data
+                        with intuitive interfaces, ensuring seamless communication between design and code.</li>
+                    <li class="flex gap-2"><span>·</span> Streamlining creative workflows using AI platforms like Claude
+                        and Antigravity to automate systematic tasks and enhance developer handoff.</li>
+                    <li class="flex gap-2"><span>·</span> Managing cross-platform consistency across three core
+                        applications (web and mobile) through robust Components and Variables.</li>
+                    <li class="flex gap-2"><span>·</span> Driving UX improvements through analytical research and
+                        usability testing to deliver tailored experiences for diverse professional user groups.</li>
+                </ul>
+            </div>
+
+            <div>
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-2xl font-700 text-gray-800">Webitlab <span
+                            class="text-gray-400 font-400 text-sm ml-2">| UI UX Designer</span></h3>
+                    <span class="text-sm font-600 text-gray-800">Mohali (Feb 23 - Jan 25)</span>
+                </div>
+                <ul class="space-y-3 text-gray-600 text-sm leading-relaxed list-none">
+                    <li class="flex gap-2"><span>·</span> Collaborate with cross-functional teams to design intuitive,
+                        user-centric interfaces like Data Driven Dashboards for web and mobile platforms etc.</li>
+                    <li class="flex gap-2"><span>·</span> Create and optimize user flows, wireframes, and prototypes
+                        using tools like Figma and Adobe Creative Suite.</li>
+                    <li class="flex gap-2"><span>·</span> Ensure seamless and aesthetically pleasing user experiences
+                        through a strong focus on usability and functionality.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="mb-32">
+        <div class="flex flex-col md:flex-row md:items-end justify-start gap-x-12 gap-y-4 mb-16">
+            <h2 class="text-5xl font-800 text-blue-primary leading-none">Skills</h2>
+            
+            <!-- Tab Controls -->
+            <div class="flex gap-8 border-b border-gray-100 pb-0">
+                <button id="tab-uiux" onclick="switchSkillTab('uiux')" 
+                    class="pb-2 text-xl font-700 transition-all duration-300 border-b-2 border-blue-primary text-blue-primary focus:outline-none">
+                    UI UX Design
+                </button>
+                <button id="tab-outside" onclick="switchSkillTab('outside')" 
+                    class="pb-2 text-xl font-600 transition-all duration-300 text-gray-400 hover:text-gray-600 border-b-2 border-transparent focus:outline-none">
+                    Outside UI UX
+                </button>
+            </div>
+        </div>
+
+        <!-- UI UX Tab Content -->
+        <div id="content-uiux" class="skill-tab-content active transition-opacity duration-300">
+            <!-- Icons Row (Individual Assets) -->
+            <div class="flex flex-wrap items-center gap-10 mb-16 px-2">
+                <div class="skill-icon-wrapper">
+                    <img src="assets/images/skills/figma.png" class="h-10 md:h-12 w-auto object-contain skill-icon"
+                        alt="Figma">
+                </div>
+                <div class="skill-icon-wrapper">
+                    <img src="assets/images/skills/spline.png" class="h-10 md:h-12 w-auto object-contain skill-icon"
+                        alt="Spline">
+                </div>
+                <div class="skill-icon-wrapper">
+                    <img src="assets/images/skills/burst.png" class="h-10 md:h-12 w-auto object-contain skill-icon"
+                        alt="Burst">
+                </div>
+                <div class="skill-icon-wrapper">
+                    <img src="assets/images/skills/photoshop.png" class="h-10 md:h-12 w-auto object-contain skill-icon"
+                        alt="Photoshop">
+                </div>
+                <div class="skill-icon-wrapper">
+                    <img src="assets/images/skills/illustrator.png" class="h-10 md:h-12 w-auto object-contain skill-icon"
+                        alt="Illustrator">
+                </div>
+                <div class="skill-icon-wrapper">
+                    <img src="assets/images/skills/aftereffects.png" class="h-10 md:h-12 w-auto object-contain skill-icon"
+                        alt="After Effects">
+                </div>
+                <div class="skill-icon-wrapper">
+                    <img src="assets/images/skills/chatgpt.png" class="h-10 md:h-12 w-auto object-contain skill-icon"
+                        alt="ChatGPT">
+                </div>
+                <div class="skill-icon-wrapper">
+                    <img src="assets/images/skills/sketch.png" class="h-10 md:h-12 w-auto object-contain skill-icon"
+                        alt="Sketch">
+                </div>
+                <div class="skill-icon-wrapper">
+                    <img src="assets/images/skills/miro.png" class="h-10 md:h-12 w-auto object-contain skill-icon"
+                        alt="Miro">
+                </div>
+                <div class="skill-icon-wrapper">
+                    <img src="assets/images/skills/powerbi.png" class="h-10 md:h-12 w-auto object-contain skill-icon"
+                        alt="Power BI">
+                </div>
+            </div>
+
+            <!-- Tags Cloud (Exact match to screenshot) -->
+            <div class="flex flex-wrap gap-3 max-w-4xl">
+                <span class="skill-tag">UI & UX Design</span>
+                <span class="skill-tag">Design Systems</span>
+                <span class="skill-tag">Components & Variables</span>
+                <span class="skill-tag">Vibe Coding</span>
+                <span class="skill-tag">Wireframing</span>
+                <span class="skill-tag">User Research</span>
+                <span class="skill-tag">Technical Handoff</span>
+                <span class="skill-tag">Prototyping</span>
+                <span class="skill-tag">MCP Integration</span>
+                <span class="skill-tag">Data Visualization</span>
+                <span class="skill-tag">Web & App Design</span>
+                <span class="skill-tag">UI/UX Testing</span>
+                <span class="skill-tag">Agent-First Design</span>
+                <span class="skill-tag">Information Architecture</span>
+            </div>
+        </div>
+
+        <!-- Outside UI UX Tab Content -->
+        <div id="content-outside" class="skill-tab-content hidden opacity-0 transition-opacity duration-300">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-2">
+                <!-- Card 1: Standup Comedy -->
+                <div class="bg-[#181818] rounded-[24px] border border-white/5 overflow-hidden transition-all duration-300 hover:border-blue-primary/30 group">
+                    <div class="aspect-square overflow-hidden relative">
+                        <img src="assets/images/skills/standup_comedy.png" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Standup Comedy">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-700 text-white mb-2 font-sora">Standup Comedy</h3>
+                        <p class="text-xs text-gray-400 leading-relaxed font-400">Tight premises, reading the room, and performing under pressure.</p>
+                    </div>
+                </div>
+
+                <!-- Card 2: Travelling -->
+                <div class="bg-[#181818] rounded-[24px] border border-white/5 overflow-hidden transition-all duration-300 hover:border-blue-primary/30 group">
+                    <div class="aspect-square overflow-hidden relative">
+                        <img src="assets/images/skills/travelling.png" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Travelling">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-700 text-white mb-2 font-sora">Travelling</h3>
+                        <p class="text-xs text-gray-400 leading-relaxed font-400">Exploring new cultures, building adaptability, and spontaneous problem solving.</p>
+                    </div>
+                </div>
+
+                <!-- Card 3: Learning New Things -->
+                <div class="bg-[#181818] rounded-[24px] border border-white/5 overflow-hidden transition-all duration-300 hover:border-blue-primary/30 group">
+                    <div class="aspect-square overflow-hidden relative">
+                        <img src="assets/images/skills/learning_new_thing.png" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Learning New Things">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-700 text-white mb-2 font-sora">Learning New Things</h3>
+                        <p class="text-xs text-gray-400 leading-relaxed font-400">Constantly expanding horizons, diving into hobbies, and mastering new skills.</p>
+                    </div>
+                </div>
+
+                <!-- Card 4: Fitness -->
+                <div class="bg-[#181818] rounded-[24px] border border-white/5 overflow-hidden transition-all duration-300 hover:border-blue-primary/30 group">
+                    <div class="aspect-square overflow-hidden relative">
+                        <img src="assets/images/skills/fitness.png" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Fitness">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-700 text-white mb-2 font-sora">Fitness</h3>
+                        <p class="text-xs text-gray-400 leading-relaxed font-400">Building physical discipline, mental resilience, and pushing daily boundaries.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Sticky Header Scroll Detection
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 20) {
+                header.classList.add('header-scrolled');
+            } else {
+                header.classList.remove('header-scrolled');
+            }
+        });
+
+        function switchSkillTab(tab) {
+            const uiuxBtn = document.getElementById('tab-uiux');
+            const outsideBtn = document.getElementById('tab-outside');
+            const uiuxContent = document.getElementById('content-uiux');
+            const outsideContent = document.getElementById('content-outside');
+
+            if (tab === 'uiux') {
+                uiuxBtn.className = 'pb-2 text-xl font-700 transition-all duration-300 border-b-2 border-blue-primary text-blue-primary focus:outline-none';
+                outsideBtn.className = 'pb-2 text-xl font-600 transition-all duration-300 text-gray-400 hover:text-gray-600 border-b-2 border-transparent focus:outline-none';
+
+                gsap.to(outsideContent, { opacity: 0, duration: 0.2, onComplete: () => {
+                    outsideContent.classList.add('hidden');
+                    uiuxContent.classList.remove('hidden');
+                    gsap.fromTo(uiuxContent, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.3 });
+                }});
+            } else {
+                outsideBtn.className = 'pb-2 text-xl font-700 transition-all duration-300 border-b-2 border-blue-primary text-blue-primary focus:outline-none';
+                uiuxBtn.className = 'pb-2 text-xl font-600 transition-all duration-300 text-gray-400 hover:text-gray-600 border-b-2 border-transparent focus:outline-none';
+
+                gsap.to(uiuxContent, { opacity: 0, duration: 0.2, onComplete: () => {
+                    uiuxContent.classList.add('hidden');
+                    outsideContent.classList.remove('hidden');
+                    gsap.fromTo(outsideContent, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.3 });
+                }});
+            }
+        }
+
+        // Background Parallax
+        gsap.utils.toArray('.parallax-bg').forEach(bg => {
+            const speed = bg.getAttribute('data-speed');
+            gsap.to(bg, {
+                y: (i, target) => -ScrollTrigger.maxScroll(window) * speed,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: "body",
+                    start: "top top",
+                    end: "bottom bottom",
+                    scrub: true
+                }
+            });
+        });
+
+        // Project Card Parallax
+        gsap.utils.toArray('.project-card img').forEach(img => {
+            gsap.to(img, {
+                y: -50,
+                scale: 1.05,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: img,
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: 1
+                }
+            });
+        });
+
+        // Section Reveal
+        gsap.utils.toArray('section').forEach(section => {
+            gsap.from(section, {
+                opacity: 0,
+                y: 30,
+                duration: 1,
+                scrollTrigger: {
+                    trigger: section,
+                    start: "top 85%",
+                    toggleActions: "play none none none"
+                }
+            });
+        });
+
+        // Sidebar ScrollSpy
+        const sections = gsap.utils.toArray('section[id]');
+        sections.forEach(section => {
+            ScrollTrigger.create({
+                trigger: section,
+                start: section.getAttribute('id') === 'skills' ? "top 80%" : "top 30%",
+                end: "bottom 30%",
+                onToggle: self => {
+                    if (self.isActive) {
+                        const id = section.getAttribute('id');
+                        const targetLink = document.querySelector(`.sidebar a[href="#${id}"]`);
+
+                        // Reset all links
+                        document.querySelectorAll('.sidebar a').forEach(link => {
+                            link.classList.remove('active-nav');
+                            link.classList.add('text-gray-400');
+                            const arrow = link.parentElement.querySelector('i');
+                            if (arrow) {
+                                arrow.classList.remove('opacity-100');
+                                arrow.classList.add('opacity-0');
+                            }
+                        });
+
+                        // Activate current
+                        if (targetLink) {
+                            targetLink.classList.add('active-nav');
+                            targetLink.classList.remove('text-gray-400');
+                            const activeArrow = targetLink.parentElement.querySelector('i');
+                            if (activeArrow) {
+                                activeArrow.classList.remove('opacity-0');
+                                activeArrow.classList.add('opacity-100');
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

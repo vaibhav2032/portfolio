@@ -1,0 +1,170 @@
+<svg viewBox="0 0 800 450" width="800" height="450" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="win-shadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#0f172a" flood-opacity="0.10"/>
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.06"/>
+    </filter>
+    <linearGradient id="nav-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#1E293B"/>
+    </linearGradient>
+    <linearGradient id="avatar-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3B82F6"/>
+      <stop offset="100%" stop-color="#1D4ED8"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Canvas Background -->
+  <rect width="800" height="450" fill="#F1F5F9"/>
+
+  <!-- Browser Window Frame -->
+  <g filter="url(#win-shadow)">
+    <rect x="24" y="20" width="752" height="410" rx="16" fill="#FFFFFF"/>
+    
+    <!-- Window Header / Titlebar -->
+    <path d="M 24 36 A 16 16 0 0 1 40 20 L 760 20 A 16 16 0 0 1 776 36 L 776 62 L 24 62 Z" fill="#F8FAFC"/>
+    <line x1="24" y1="62" x2="776" y2="62" stroke="#E2E8F0" stroke-width="1"/>
+
+    <!-- Window Dots -->
+    <circle cx="46" cy="41" r="5" fill="#EF4444"/>
+    <circle cx="62" cy="41" r="5" fill="#F59E0B"/>
+    <circle cx="78" cy="41" r="5" fill="#10B981"/>
+
+    <!-- URL Bar -->
+    <rect x="110" y="29" width="340" height="24" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+    <!-- Lock Icon -->
+    <g transform="translate(122, 35)">
+      <rect x="0" y="4" width="9" height="7" rx="1.5" fill="#64748B"/>
+      <path d="M 2 4 L 2 2.5 A 2.5 2.5 0 0 1 7 2.5 L 7 4" fill="none" stroke="#64748B" stroke-width="1.2"/>
+    </g>
+    <text x="138" y="45.5" font-family="Inter, -apple-system, sans-serif" font-size="10.5" font-weight="500" fill="#334155">
+      supplymint.internal<tspan fill="#94A3B8">/vendors/88219/overview</tspan>
+    </text>
+
+    <!-- Context Severed Indicator Badge on Titlebar -->
+    <g transform="translate(560, 29)">
+      <rect x="0" y="0" width="200" height="24" rx="12" fill="#FEF2F2" stroke="#FECACA" stroke-width="1"/>
+      <circle cx="12" cy="12" r="3" fill="#EF4444"/>
+      <text x="22" y="16" font-family="Inter, -apple-system, sans-serif" font-size="9.5" font-weight="700" fill="#DC2626" letter-spacing="0.3">
+        FULL ROUTE NAVIGATION
+      </text>
+    </g>
+  </g>
+
+  <!-- Browser Content Area -->
+  <g transform="translate(24, 63)">
+    <!-- App Global Header Strip -->
+    <rect x="0" y="0" width="752" height="38" fill="url(#nav-grad)"/>
+    <text x="24" y="24" font-family="Poppins, sans-serif" font-size="12" font-weight="700" fill="#FFFFFF" letter-spacing="0.5">
+      SUPPLYMINT <tspan fill="#38BDF8" font-size="9" font-weight="600">ENTERPRISE</tspan>
+    </text>
+
+    <!-- Breadcrumb Bar -->
+    <rect x="0" y="38" width="752" height="32" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+    <text x="24" y="59" font-family="Inter, -apple-system, sans-serif" font-size="10" font-weight="500" fill="#64748B">
+      Procurement Directory &gt; Suppliers &gt; <tspan fill="#0F172A" font-weight="600">Apex Global Logistics Co.</tspan>
+    </text>
+    <g transform="translate(630, 44)">
+      <rect x="0" y="0" width="98" height="20" rx="4" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+      <text x="49" y="14" text-anchor="middle" font-family="Inter, -apple-system, sans-serif" font-size="9" font-weight="600" fill="#475569">
+        ← Exit to PO Draft
+      </text>
+    </g>
+
+    <!-- Main Content Layout (Sidebar + Body) -->
+    <!-- Left Navigation Sidebar inside page -->
+    <rect x="0" y="70" width="160" height="297" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+    <text x="16" y="94" font-family="Inter, -apple-system, sans-serif" font-size="8.5" font-weight="700" fill="#94A3B8" letter-spacing="0.8">
+      VENDOR DOSSIER
+    </text>
+
+    <!-- Sidebar Active Item: Overview -->
+    <rect x="10" y="104" width="140" height="28" rx="6" fill="#EFF6FF"/>
+    <text x="22" y="122" font-family="Inter, -apple-system, sans-serif" font-size="10.5" font-weight="600" fill="#1D4ED8">
+      1. General Overview
+    </text>
+    <rect x="10" y="104" width="3" height="28" rx="1.5" fill="#2563EB"/>
+
+    <!-- Inactive Items -->
+    <text x="22" y="152" font-family="Inter, -apple-system, sans-serif" font-size="10" font-weight="500" fill="#64748B">2. Purchase Orders (42)</text>
+    <text x="22" y="180" font-family="Inter, -apple-system, sans-serif" font-size="10" font-weight="500" fill="#64748B">3. Financial Ledger</text>
+    <text x="22" y="208" font-family="Inter, -apple-system, sans-serif" font-size="10" font-weight="500" fill="#64748B">4. OTIF Compliance</text>
+    <text x="22" y="236" font-family="Inter, -apple-system, sans-serif" font-size="10" font-weight="500" fill="#64748B">5. Tax &amp; GST Audit</text>
+
+    <!-- Right Content Area -->
+    <g transform="translate(176, 80)">
+      <!-- Vendor Header Profile Card -->
+      <rect x="0" y="0" width="552" height="74" rx="10" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
+      
+      <!-- Avatar -->
+      <rect x="16" y="14" width="46" height="46" rx="10" fill="url(#avatar-grad)"/>
+      <text x="39" y="43" text-anchor="middle" font-family="Poppins, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">AG</text>
+
+      <!-- Vendor Name and ID -->
+      <text x="74" y="34" font-family="Poppins, sans-serif" font-size="14" font-weight="700" fill="#0F172A">
+        Apex Global Logistics Ltd.
+      </text>
+      <text x="74" y="52" font-family="Inter, -apple-system, sans-serif" font-size="10" font-weight="400" fill="#64748B">
+        Supplier Code: <tspan font-family="monospace" font-weight="600" fill="#334155">VND-88219</tspan> • Tier-1 Strategic Partner
+      </text>
+
+      <!-- Verified Pill -->
+      <rect x="440" y="18" width="96" height="22" rx="11" fill="#ECFDF5" stroke="#A7F3D0" stroke-width="1"/>
+      <circle cx="452" cy="29" r="3" fill="#10B981"/>
+      <text x="460" y="33" font-family="Inter, -apple-system, sans-serif" font-size="9" font-weight="700" fill="#047857">
+        GST VERIFIED
+      </text>
+
+      <!-- Sub-Cards Grid (2 Columns) -->
+      <!-- Card 1: Enterprise Credentials -->
+      <g transform="translate(0, 86)">
+        <rect x="0" y="0" width="268" height="150" rx="10" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
+        <rect x="0" y="0" width="268" height="28" rx="10" fill="#F8FAFC"/>
+        <line x1="0" y1="28" x2="268" y2="28" stroke="#E2E8F0" stroke-width="1"/>
+        <text x="14" y="19" font-family="Inter, -apple-system, sans-serif" font-size="10" font-weight="700" fill="#334155" letter-spacing="0.4">
+          LEGAL &amp; TAX IDENTIFIERS
+        </text>
+
+        <!-- Fields -->
+        <text x="14" y="48" font-family="Inter, sans-serif" font-size="9" font-weight="500" fill="#64748B">GSTIN Number</text>
+        <text x="14" y="62" font-family="monospace" font-size="10" font-weight="600" fill="#0F172A">27AAACA1234F1Z5</text>
+
+        <text x="14" y="86" font-family="Inter, sans-serif" font-size="9" font-weight="500" fill="#64748B">PAN Number</text>
+        <text x="14" y="100" font-family="monospace" font-size="10" font-weight="600" fill="#0F172A">AAACA1234F</text>
+
+        <text x="14" y="124" font-family="Inter, sans-serif" font-size="9" font-weight="500" fill="#64748B">Credit Limit &amp; Terms</text>
+        <text x="14" y="138" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#047857">$250,000.00 • Net 45</text>
+      </g>
+
+      <!-- Card 2: Performance Telemetry -->
+      <g transform="translate(284, 86)">
+        <rect x="0" y="0" width="268" height="150" rx="10" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
+        <rect x="0" y="0" width="268" height="28" rx="10" fill="#F8FAFC"/>
+        <line x1="0" y1="28" x2="268" y2="28" stroke="#E2E8F0" stroke-width="1"/>
+        <text x="14" y="19" font-family="Inter, -apple-system, sans-serif" font-size="10" font-weight="700" fill="#334155" letter-spacing="0.4">
+          PERFORMANCE SCORES
+        </text>
+
+        <!-- Metric 1 -->
+        <text x="14" y="48" font-family="Inter, sans-serif" font-size="9" font-weight="500" fill="#64748B">On-Time Fulfillment (OTIF)</text>
+        <text x="14" y="66" font-family="Poppins, sans-serif" font-size="15" font-weight="700" fill="#1D4ED8">94.8%</text>
+        <rect x="14" y="74" width="238" height="4" rx="2" fill="#E2E8F0"/>
+        <rect x="14" y="74" width="225" height="4" rx="2" fill="#2563EB"/>
+
+        <!-- Metric 2 -->
+        <text x="14" y="100" font-family="Inter, sans-serif" font-size="9" font-weight="500" fill="#64748B">Active PO Commitment</text>
+        <text x="14" y="118" font-family="Poppins, sans-serif" font-size="15" font-weight="700" fill="#0F172A">$78,450.00</text>
+        <text x="14" y="136" font-family="Inter, sans-serif" font-size="9" font-weight="500" fill="#64748B">Across 4 pending warehouse shipments</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Flaw Callout Footer Badge -->
+  <g transform="translate(180, 404)">
+    <rect x="0" y="0" width="440" height="28" rx="14" fill="#FEF2F2" stroke="#F87171" stroke-width="1"/>
+    <circle cx="16" cy="14" r="4" fill="#EF4444"/>
+    <text x="28" y="18" font-family="Inter, -apple-system, sans-serif" font-size="10.5" font-weight="700" fill="#991B1B">
+      CRITICAL DRAWBACK: 4+ Context Navigation Steps to Return to Draft
+    </text>
+  </g>
+</svg>
